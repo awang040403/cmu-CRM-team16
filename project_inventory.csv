@@ -1,0 +1,9 @@
+path,purpose,notes
+app.py,Interactive Streamlit application,Python source
+risk_model.py,Monte Carlo simulation and package comparison,Python source
+data/risk_register.csv,Five scenario inputs and control assumptions,CSV; illustrative values
+report_draft.md,Long-form consulting report draft,Markdown
+presentation_outline.md,16-slide deck outline and speaker roles,Markdown
+model_card.md,"Purpose, limitations, validation checklist",Markdown
+tests/test_model.py,Basic simulation sanity checks,Python source
+README.md,Setup and submission instructions,Markdown
