@@ -42,3 +42,4 @@ This is not a complete FAIR implementation by itself. It is a classroom Monte Ca
 4. Add evidence for parameter choices; otherwise label as expert-elicited or illustrative assumptions.
 5. Have a teammate independently inspect the code, calculations, and chart interpretations.
 6. Export the final app screenshots or provide a reliable hosted URL if your instructor permits it.
+
