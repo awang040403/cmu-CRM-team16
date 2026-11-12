@@ -1,0 +1,9 @@
+parameter,low_input,high_input,at_low,at_high,swing,center,range_basis
+Control effectiveness,0.5,1.25,40313179.03587581,40313179.03587581,0.0,40313179.03587581,"Controls deliver half, or 125%, of the assumed reductions"
+Control cost,0.5,1.5,40313179.03587581,40313179.03587581,0.0,40313179.03587581,Vendor quotes come in at half or 150% of team estimates
+Report credibility weights,0.5,1.5,31626955.402825307,41452575.584681176,9825620.181855869,40313179.03587581,Halve or raise (capped at 1) the evidence-based credibility of each report
+Primary loss magnitude,0.5,2.0,32386751.352010008,56166034.40360741,23779283.051597405,40313179.03587581,Scales every primary-loss 90% interval
+Secondary loss magnitude (SLM),0.5,1.5,28083017.20180368,52543340.86994796,24460323.668144282,40313179.03587581,Scales the Coinbase 8-K $180M-$400M range and the other SLM intervals
+Weight on industry prior (years),0.25,4.0,64128587.3588288,30667469.8578294,33461117.5009994,40313179.03587581,Trust internal reports more (0.25) or the benchmark more (4)
+Industry prior frequency,3.15,13.8,28842813.1509884,67623573.99989344,38780760.84890504,40313179.03587581,"Half of Ponemon's 6.3 malicious incidents/yr up to Ponemon's 13.8 all-type incidents/yr (B14, B10)"
+Escalation probability (SLEF),0.33,2.67,23924762.178219188,81161919.56167662,57237157.38345744,40313179.03587581,"S1 escalation from 1% to 8%, other scenarios scaled the same way"

@@ -1,0 +1,42 @@
+control_id,scenario_id,lever,reduction,rationale
+C1,S1,primary,0.4,Ticket-scoped access caps the records an agent can reach per shift
+C1,S1,slef,0.3,Fewer records per event means fewer events reach mass-exposure scale
+C1,S2,frequency,0.3,Browsing without a ticket is blocked at the source
+C1,S2,primary,0.3,Masked fields limit what is exposed when abuse does happen
+C2,S1,primary,0.25,Automatic suspension shortens the exfiltration window
+C2,S1,slef,0.3,Containment before the data reaches scammers
+C2,S2,frequency,0.1,Visible monitoring deters casual abuse
+C2,S2,primary,0.3,Faster containment (B16/B17)
+C2,S3,primary,0.25,Anomalous fund movements are frozen sooner
+C2,S4,primary,0.2,Shared-session anomalies are flagged sooner
+C3,S1,frequency,0.45,Device-free floors and on-site supervision remove the phone-camera path
+C3,S1,primary,0.1,Exfiltration that does occur is slower and smaller
+C4,S1,frequency,0.25,Bribe approaches become reportable leads instead of transactions
+C4,S1,slef,0.1,Earlier tip-offs shorten campaigns
+C4,S2,frequency,0.1,Coworker reporting deters abuse
+C4,S3,frequency,0.15,Whistleblower tips are the most common fraud detection source
+C5,S2,frequency,0.35,No standing privilege to abuse
+C5,S2,primary,0.15,Session recording limits the scope of abuse
+C5,S3,frequency,0.25,Privileged finance actions need just-in-time elevation
+C5,S4,frequency,0.6,JIT access removes the reason to share admin logins
+C6,S3,frequency,0.5,A single actor can no longer raise limits alone
+C6,S3,primary,0.3,Second approver catches large changes before funds move
+C7,S2,primary,0.15,Tamper-evident trail speeds investigation
+C7,S3,frequency,0.1,Deterrence: edits to reconciliation notes are visible
+C7,S3,primary,0.25,Manipulation is detected at the next reconciliation
+C7,S3,slef,0.2,Detected before it reaches financial statements
+C8,S1,slm,0.4,Friction on exposed accounts prevents most scam payouts that drive reimbursement
+C8,S1,primary,0.15,Fewer successful scams in the first weeks
+C9,S1,frequency,0.08,Earlier aggregation of weak signals
+C9,S2,frequency,0.08,Earlier aggregation of weak signals
+C9,S3,frequency,0.08,Earlier aggregation of weak signals
+C9,S4,frequency,0.08,Earlier aggregation of weak signals
+C9,S1,primary,0.1,Faster triage when reports are linked into one campaign
+C9,S2,primary,0.1,Faster triage
+C9,S3,primary,0.1,Faster triage
+C9,S4,primary,0.1,Faster triage
+C9,S1,slef,0.15,IR-0001/0002/0008 would have been linked weeks earlier
+C10,S1,slm,0.4,"Insurer pays most of a $180M-$400M event above the $25M retention, up to the $150M limit"
+C10,S2,slm,0.4,Regulatory defense and settlement coverage
+C10,S3,slm,0.3,Crime-policy exclusions for employee dishonesty reduce recovery
+C10,S4,slm,0.4,Same tower responds to credential-misuse incidents

@@ -1,0 +1,5 @@
+quantity,model,benchmark,benchmark_source,interpretation
+Malicious loss events per year,9.808231173380035,6.3,Ponemon 2026 malicious incidents/org (B14),Above benchmark because internal reports are updating the prior upward.
+Mean primary loss per event,1616280.7633201934,747107.0,"Ponemon 2026 average incident cost, all types (B11)",Malicious events at a crypto exchange should exceed the all-type average (negligent incidents are cheaper).
+Expected annual loss,40313179.03587581,19500000.0,"Ponemon 2026 average annual insider cost, all types (B01)",Gap is the secondary-loss tail: Coinbase actually lost $345M in 2025 (B19).
+Expected annual primary loss only,15852855.3677316,4900000.0,IBM average annual malicious-insider cost (B12),Primary-only loss is the closest like-for-like comparison.
