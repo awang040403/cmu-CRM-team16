@@ -1,9 +1,22 @@
 path,purpose,notes
-app.py,Interactive Streamlit application,Python source
-risk_model.py,Monte Carlo simulation and package comparison,Python source
-data/risk_register.csv,Five scenario inputs and control assumptions,CSV; illustrative values
-report_draft.md,Long-form consulting report draft,Markdown
-presentation_outline.md,16-slide deck outline and speaker roles,Markdown
-model_card.md,"Purpose, limitations, validation checklist",Markdown
-tests/test_model.py,Basic simulation sanity checks,Python source
-README.md,Setup and submission instructions,Markdown
+app.py,Part 4 interactive dashboard with department drop-down,Streamlit
+insider_risk/categorize.py,Part 2 ABCD categorization and campaign linking,Python
+insider_risk/quantify.py,Part 3 FAIR frequency x magnitude and Monte Carlo,Python
+insider_risk/controls.py,Control value and portfolio optimization,Python
+insider_risk/sensitivity.py,Tornado and recommendation stability,Python
+insider_risk/data.py,Loaders and department definitions,Python
+data/raw/,Marie's original research workbooks,XLSX
+data/insider_reports.csv,Intake log converted from Marie's sample,CSV
+data/benchmarks.csv,Cited statistics B01-B22,CSV
+data/scenarios.csv,Loss-magnitude parameters with basis,CSV
+data/controls.csv,Control catalog with NIST/CSF/regulation and cost,CSV
+data/control_effects.csv,Per-scenario control effects,CSV
+scripts/import_marie_data.py,Rebuild CSVs from raw workbooks,Python
+scripts/export_results.py,Regenerate results quoted in deliverables,Python
+results/,Base-case outputs (summary.md + CSVs),Generated
+docs/part3_quantification.md,Part 3 report section,Markdown
+docs/part4_dashboard_design.md,Part 4 report section and demo script,Markdown
+model_card.md,Intended use and limitations,Markdown
+tests/test_model.py,Model and dashboard tests,pytest
+report_draft.md,Earlier generic-bank report draft (superseded by docs/),Markdown
+presentation_outline.md,Earlier generic-bank slide outline,Markdown

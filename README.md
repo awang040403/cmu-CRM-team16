@@ -1,45 +1,64 @@
-# Insider Risk Lab — CMU 14-817 Scenario 2
+# Centralized Insider-Threat Reporting and Quantification: Coinbase
 
-An interactive Streamlit prototype plus reproducible Python Monte Carlo model for the group project scenario: insider threats at a multinational financial institution.
+CMU 14-817 Cyber Risk Modeling · Team 16 (Dheya Reddy Doddipalli, Marie McCauley, Amy Wang) · Scenario 2
 
-## Important integrity note
-All numeric starting values in `data/risk_register.csv` are illustrative assumptions. They are not actual bank data, empirically measured incident rates, or sourced loss estimates. Clearly label them in the presentation and report. Replace them with credible, cited evidence or a documented expert-elicitation process where available.
+A working implementation of the four-step pipeline from our Milestone 1 deck:
 
-## Run locally
-Python 3.10+ recommended.
+```
+1. Report       ->  2. Categorize        ->  3. Quantify              ->  4. Dashboard
+dept web forms      malicious + A/B/C/D      FAIR + 10,000-run MC         dept & company views,
+(Marie's sample)    + campaign linking       Bayesian frequency           costs, controls, NIST + regulation
+```
+
+## Run it
 
 ```bash
 python -m venv .venv
-# macOS/Linux
-source .venv/bin/activate
-# Windows PowerShell
-# .venv\Scripts\Activate.ps1
-
+source .venv/bin/activate          # Windows: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run app.py               # opens http://localhost:8501
 ```
 
-Streamlit will print a local URL, usually `http://localhost:8501`.
+Other commands:
 
-## Project contents
-- `app.py`: interactive dashboard with six tabs, sensitivity sliders, Monte Carlo distribution, exceedance curve, control package comparison, risk register, framework mapping, and roadmap.
-- `risk_model.py`: reproducible compound-Poisson / lognormal simulation and portfolio comparison.
-- `data/risk_register.csv`: five distinct insider-risk scenarios and transparent model assumptions.
-- `report_draft.md`: report narrative draft and methodological explanation.
-- `presentation_outline.md`: 16-slide presentation outline and speaker allocation suggestions.
-- `model_card.md`: model purpose, assumptions, limitations, and validation checklist.
-- `tests/test_model.py`: basic model sanity tests.
+```bash
+python scripts/import_marie_data.py   # rebuild data/insider_reports.csv from Marie's raw workbooks
+python scripts/export_results.py      # regenerate results/summary.md and CSVs quoted in the report
+pytest -q                             # 13 tests: model math, partitions, optimizer, and the dashboard itself
+```
 
-## Model structure
-For each scenario, annual event count is modeled as Poisson with mean lambda. Each event's loss severity is modeled as lognormal, parameterized by a median and log-space sigma. Annual scenario losses are summed across events and scenarios. The control packages reduce assumed event frequency and median severity by scenario-specific percentages. Program costs are compared with modeled mean loss avoided in a simplified annual proxy.
+## Headline results (base case, 10,000 trials, seed 14817)
 
-This is not a complete FAIR implementation by itself. It is a classroom Monte Carlo structure that should be aligned with the exact FAIR Standard v3.0 terms and decomposition used in the course. Do not label the Poisson/lognormal assumptions as required by FAIR; they are modeling choices that need justification and sensitivity analysis.
+| | Inherent | With recommended controls |
+|---|---|---|
+| Expected annual loss | $40.3M | $8.2M |
+| 1-in-20 year (P95) | $249M | $25M |
+| P(annual loss ≥ $100M) | 8.1% | 2.3% |
 
-## Before submission
-1. Compare against the actual assignment rubric and project guidance.
-2. Confirm all frameworks used were covered in class or cite them as supplementary.
-3. Add citations to course lecture slides, FAIR Standard v3.0, NIST SP 800-37 Rev. 2, OWASP threat modeling guidance, and any MITRE ATT&CK technique pages you actually use.
-4. Add evidence for parameter choices; otherwise label as expert-elicited or illustrative assumptions.
-5. Have a teammate independently inspect the code, calculations, and chart interpretations.
-6. Export the final app screenshots or provide a reliable hosted URL if your instructor permits it.
+- Recommended portfolio: C1, C2, C4, C5, C6, C8, C9. It costs $7.6M/yr, has a net benefit of $25.0M/yr, and a return on security investment of 329%.
+- Bribed BPO exfiltration is 57% of expected loss and 92% of the worst-5% years; Customer support carries $22.6M.
+- No mitigation mix gets the chance of a $100M+ year below about 2%. Meeting a 1% appetite needs risk transfer (insurance).
+- Back-test: conditional on escalation, Coinbase's actual FY2025 loss ($345.2M) sits at the 85th percentile of the modeled range.
 
+## Repository map
+
+| Path | What it is |
+|---|---|
+| `app.py` | Part 4: Streamlit dashboard with the department drop-down and six tabs |
+| `insider_risk/categorize.py` | Part 2: ABCD labels, credibility weights, campaign linking, auto-routing |
+| `insider_risk/quantify.py` | Part 3: Gamma-Poisson frequency, lognormal primary/secondary loss, Monte Carlo, calibration |
+| `insider_risk/controls.py` | Control effects, 1,024-portfolio optimizer, efficient frontier, risk-appetite screen |
+| `insider_risk/sensitivity.py` | Tornado and recommendation-stability analysis |
+| `data/raw/` | Marie's original workbooks (intake sample and cited statistics) |
+| `data/insider_reports.csv` | Intake log converted from Marie's sample |
+| `data/benchmarks.csv` | Cited statistics with IDs B01–B22 and how each is used |
+| `data/scenarios.csv` | Loss-magnitude 90% intervals, SLEF, SLM, and the basis for each |
+| `data/controls.csv`, `data/control_effects.csv` | Control catalog (NIST 800-53, CSF 2.0, regulation, cost) and per-scenario effects |
+| `docs/part3_quantification.md` | Part 3 write-up for the report |
+| `docs/part4_dashboard_design.md` | Part 4 write-up and live-demo script |
+| `results/` | Reproducible outputs quoted in the report and slides |
+| `model_card.md` | Intended use, assumptions, limitations, validation status |
+
+## Integrity note
+
+Frequencies blend a cited industry benchmark (Ponemon/DTEX 2026) with ten sample reports. Loss ranges are anchored on Ponemon and on Coinbase's SEC filings. Escalation probabilities, report credibility weights, control effects and control costs are team estimates. They are labeled as such in `data/*.csv` and in the app, and they are stress-tested on the Sensitivity tab. This is a proof of concept, not a validated actuarial model.
