@@ -103,8 +103,17 @@ def categorize(reports: pd.DataFrame, scenarios: pd.DataFrame) -> pd.DataFrame:
     out["secondary_loss_forms"] = [f[1] for f in forms]
 
     out["credibility"] = [credibility(e, x) for e, x in zip(out.evidence, out.external_party_involved)]
-    out["records_est"] = out.records_affected.map(RECORDS_ESTIMATE).fillna(0).astype(int)
-    out["detection_lag_days"] = (out.report_date - out.first_noticed).dt.days
+    # Prefer exact counts from synthetic columns A–M (records_exposed) when present
+    if "records_exposed" in out.columns:
+        exact = pd.to_numeric(out.records_exposed, errors="coerce")
+        out["records_est"] = exact.fillna(out.records_affected.map(RECORDS_ESTIMATE)).fillna(0).astype(int)
+    else:
+        out["records_est"] = out.records_affected.map(RECORDS_ESTIMATE).fillna(0).astype(int)
+    if "days_to_detect" in out.columns:
+        lag = pd.to_numeric(out.days_to_detect, errors="coerce")
+        out["detection_lag_days"] = lag.fillna((out.report_date - out.first_noticed).dt.days).astype(int)
+    else:
+        out["detection_lag_days"] = (out.report_date - out.first_noticed).dt.days
     return link_campaigns(out)
 
 

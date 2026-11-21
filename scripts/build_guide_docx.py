@@ -1,8 +1,8 @@
-"""Build the Word summary + user guide for Parts 3 and 4.
+"""Build Amy's Parts 3-4 Summary and Dashboard Guide (Word).
 
 Usage:  python scripts/build_guide_docx.py
 Needs:  pip install python-docx; screenshots from scripts/capture_screenshots.py
-Writes: ../Parts 3-4 Summary and Dashboard Guide.docx (next to the project PDFs)
+Writes: ../Amy's Parts 3-4 Summary and Dashboard Guide.docx
 """
 from pathlib import Path
 
@@ -15,7 +15,7 @@ from docx.shared import Inches, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[1]
 SHOTS = ROOT / "docs" / "screenshots"
-OUT = ROOT.parent / "Parts 3-4 Summary and Dashboard Guide.docx"
+OUT = ROOT.parent / "Amy's Parts 3-4 Summary and Dashboard Guide.docx"
 BLUE = RGBColor(0x1F, 0x4E, 0x9A)
 GREY = RGBColor(0x59, 0x59, 0x59)
 
@@ -101,7 +101,11 @@ def table(header, rows, widths=None, font=9.5):
 
 
 def figure(name, caption, width=6.6):
-    doc.add_picture(str(SHOTS / f"{name}.png"), width=Inches(width))
+    path = SHOTS / f"{name}.png"
+    if not path.exists():
+        para(f"[Screenshot placeholder: {name}.png — re-run scripts/capture_screenshots.py]", italic=True, color=GREY)
+        return
+    doc.add_picture(str(path), width=Inches(width))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = doc.add_paragraph()
     r = p.add_run(caption)
@@ -112,7 +116,6 @@ def figure(name, caption, width=6.6):
 
 
 def callouts(items):
-    """Numbered explanations that match the red numbers on the screenshot."""
     for n, (title, text) in enumerate(items, 1):
         p = doc.add_paragraph()
         p.paragraph_format.left_indent = Inches(0.3)
@@ -127,307 +130,339 @@ def callouts(items):
 
 t = doc.add_paragraph()
 t.alignment = WD_ALIGN_PARAGRAPH.CENTER
-r = t.add_run("Parts 3 & 4 Upgrade: Quantification and Dashboard")
+r = t.add_run("Amy’s Parts 3 & 4: Quantification and Dashboard Guide")
 r.bold = True
-r.font.size = Pt(22)
+r.font.size = Pt(20)
 r.font.color.rgb = BLUE
 s = doc.add_paragraph()
 s.alignment = WD_ALIGN_PARAGRAPH.CENTER
-r = s.add_run("Summary of changes, why they target an outstanding grade, and how to use the website\n"
-              "CMU 14-817 Cyber Risk Modeling · Team 16 (Dheya, Marie, Amy) · Coinbase insider-threat scenario")
+r = s.add_run(
+    "How the website works, how to read it, and why the design over-fulfills Milestone 1\n"
+    "CMU 14-817 Cyber Risk Modeling · Team 16 (Dheya, Marie, Amy) · Coinbase · Scenario 2"
+)
 r.font.size = Pt(11)
 r.font.color.rgb = GREY
 
 # --------------------------------------------------------------------------- 1
 
 doc.add_heading("1. At a glance", level=1)
-para("We rebuilt Part 3 (Quantify) and Part 4 (Dashboard) of our pipeline. The earlier prototype modeled a "
-     "generic bank with made-up numbers. The new version runs on Marie's intake reports and cited statistics, "
-     "models Coinbase specifically, and lets anyone pick a department from a drop-down and see that "
-     "department's risk, recommended controls and compliance mapping.")
-table(["Result (base case, 10,000 simulated years)", "Today", "With recommended controls"], [
-    ["Expected annual loss", "$40.3M", "$8.2M"],
-    ["Typical bad year (1-in-20, P95)", "$249M", "$25M"],
-    ["Chance of a $100M+ year", "8.1%", "2.3%"],
-    ["Recommended controls", "–", "C1, C2, C4, C5, C6, C8, C9"],
-    ["Annual cost / net benefit / ROSI", "–", "$7.6M / $25.0M / 329%"],
-], widths=[3.2, 1.4, 2.0])
+para(
+    "Part 3 (Quantify) and Part 4 (Dashboard) now run on Dheya’s synthetic insider-incident history. "
+    "The website loads only columns A–M from synthetic_insider_incidents.xlsx (incident attributes). "
+    "USD loss columns N–T are intentionally excluded so synthetic dollars never become fake “ground truth.” "
+    "FAIR loss magnitude still comes from cited Ponemon benchmarks and Coinbase SEC filings. "
+    "A single department drop-down re-scopes every KPI, chart, and control recommendation."
+)
+table(["Result (base case, 10,000 simulated years)", "Today (inherent)", "With recommended controls"], [
+    ["Expected annual loss", "$96.8M", "$11.0M"],
+    ["Typical bad year (1-in-20, P95)", "$381M", "$38.5M"],
+    ["Chance of a $100M+ year", "22.0%", "3.3%"],
+    ["Recommended controls", "–", "C1, C2, C3, C4, C5, C6, C8, C9"],
+    ["Annual cost / net benefit / ROSI", "–", "$10.6M / $73.9M / 697%"],
+    ["Data feeding the app", "500 incidents · cols A–M only · 93 linked campaigns · ~5 years", ""],
+], widths=[3.2, 1.6, 1.9])
 
 # --------------------------------------------------------------------------- 2
 
-doc.add_heading("2. What changed", level=1)
-doc.add_heading("2.1 Before vs. after", level=2)
+doc.add_heading("2. Data the website uses (and does not use)", level=1)
+doc.add_heading("2.1 Columns A–M only", level=2)
+para(
+    "Per project decision, the web app imports only the first thirteen fields of the synthetic workbook. "
+    "Dollar columns are kept out of the product so Part 3 can stay auditable against external sources."
+)
+table(["Col", "Field", "Role in the model"], [
+    ["A", "incident_id", "Primary key / report id"],
+    ["B", "incident_date", "Event date → observation window for LEF"],
+    ["C", "incident_type", "Insider class → FAIR scenario mapping"],
+    ["D", "business_line", "Maps onto Coinbase business-unit views"],
+    ["E", "insider_role", "Subject type and access level"],
+    ["F", "work_arrangement", "Location (remote / on-site / hybrid)"],
+    ["G", "records_exposed", "Exact record count (quant metric D)"],
+    ["H", "days_to_detect", "Detection lag (quant metric D)"],
+    ["I", "detection_method", "Evidence proxy → credibility weight"],
+    ["J", "days_to_contain", "Containment speed (leading indicator)"],
+    ["K", "prior_warning_signs", "Warning-sign count (leading indicator)"],
+    ["L", "motivation", "Motivation → scenario / intent mapping"],
+    ["M", "primary_impact_category", "Pollmeier impact class → FAIR loss forms (C)"],
+], widths=[0.6, 2.2, 3.9], font=9)
+para(
+    "Excluded from the website: regulatory_usd, customer_usd, media_usd, response_usd, "
+    "cost_of_capital_usd, forensic_usd, total_loss_usd. Rebuild with: python scripts/import_synthetic.py"
+)
+
+doc.add_heading("2.2 Before vs. after this upgrade", level=2)
 table(["Area", "Before", "After"], [
-    ["Data", "Five illustrative bank scenarios typed into a CSV; no real sources",
-     "Marie's 10 web-form reports + 22 cited benchmarks (Ponemon/DTEX 2026, IBM, Coinbase 8-K/10-K), each with an ID"],
-    ["Company", "Unnamed multinational bank", "Coinbase, with the 2025 bribed-support-agent breach as the anchor event"],
-    ["Part 2 link", "None", "Each report gets the A/B/C/D labels from our deck; duplicate reports of one bribery ring are linked into one campaign"],
-    ["Frequency", "Fixed guesses per scenario",
-     "Bayesian update: Ponemon's 6.3 incidents/yr prior + credibility-weighted reports (credibility factor shown)"],
-    ["Loss size", "One lognormal per scenario",
-     "FAIR primary loss + secondary loss (escalation probability × Coinbase-scale $180M–$400M)"],
-    ["Simulation", "Monte Carlo of illustrative numbers",
-     "10,000-run Monte Carlo with parameter uncertainty, exceedance curve, P95/P99/TVaR, back-test"],
-    ["Departments", "No department view",
-     "Single drop-down: Company-wide, 6 response teams, 7 business units; every number re-scopes"],
-    ["Controls", "Three generic packages A/B/C",
-     "10 named controls tied to the gaps in our deck, each with NIST 800-53 ID, CSF 2.0 function, regulation and cost"],
-    ["Decision support", "Net-benefit bar chart",
-     "All 1,024 control combinations, efficient frontier, cheapest portfolio within board risk appetite, budget mode"],
-    ["Uncertainty", "Three sliders",
-     "Tornado chart + recommendation-stability test across 17 stress cases"],
-    ["Live demo", "None", "Report-intake form: submit a report, it is routed and categorized, and all numbers update"],
-    ["Quality", "3 basic tests", "13 tests (math, partitions, optimizer, and the dashboard itself), reproducible results export"],
+    ["Data", "10 illustrative web-form rows",
+     "500 synthetic incidents (A–M) + Marie’s 22 cited benchmarks (B01–B22)"],
+    ["Company", "Generic / early Coinbase mock",
+     "Coinbase Scenario 2, anchored on the 2024–25 bribed-support-agent event"],
+    ["Frequency", "Tiny sample + strong prior",
+     "Bayesian Gamma-Poisson: Ponemon 6.3/yr prior + 93 credibility-weighted campaigns over ~5 years (Z ≈ 0.83)"],
+    ["Loss size", "Lognormal ranges only",
+     "FAIR primary + secondary (SLEF × Coinbase-scale $180M–$400M SLM); USD columns not used as inputs"],
+    ["Departments", "Drop-down over thin sample",
+     "Same drop-down; Customer support ~$45M and Operations ~$26M dominate the $97M company total"],
+    ["Controls", "10 NIST-mapped controls",
+     "Same catalog; optimal portfolio now C1–C6, C8, C9 (adds BPO personnel security C3)"],
 ], widths=[1.1, 2.2, 3.4], font=9)
 
-doc.add_heading("2.2 Files", level=2)
-para("Everything is in the insider_threat_project folder.", space_after=3)
+doc.add_heading("2.3 Code files Amy owns / maintains", level=2)
 table(["File", "Purpose"], [
-    ["app.py", "The dashboard website (Part 4)"],
-    ["insider_risk/categorize.py", "Part 2: A/B/C/D labels, credibility weights, campaign linking, auto-routing"],
-    ["insider_risk/quantify.py", "Part 3: Bayesian frequency, FAIR loss magnitude, Monte Carlo, calibration"],
-    ["insider_risk/controls.py, sensitivity.py", "Control ROI, portfolio optimizer, tornado, robustness"],
-    ["data/raw/", "Marie's original Excel files (unchanged)"],
-    ["data/benchmarks.csv, scenarios.csv, controls.csv", "Every input with its source or labeled as a team estimate"],
-    ["docs/part3_quantification.md", "Part 3 write-up ready for the report"],
-    ["docs/part4_dashboard_design.md", "Part 4 write-up and demo script"],
-    ["results/summary.md", "Every number quoted in this document, regenerated by scripts/export_results.py"],
-    ["Removed: risk_model.py, data/risk_register.csv", "Old generic-bank model (still in git history)"],
-], widths=[2.6, 4.1], font=9)
+    ["app.py", "Streamlit dashboard (Part 4)"],
+    ["insider_risk/categorize.py", "Part 2 labels, credibility, campaign linking, routing"],
+    ["insider_risk/quantify.py", "Part 3: Bayesian LEF, FAIR LM, Monte Carlo"],
+    ["insider_risk/controls.py, sensitivity.py", "ROI, optimizer, tornado, robustness"],
+    ["insider_risk/data.py", "Loaders; enforces A–M only (drops *_usd)"],
+    ["scripts/import_synthetic.py", "Converts A–M → insider_reports.csv"],
+    ["scripts/export_results.py", "Regenerates results/summary.md (source of truth for numbers)"],
+    ["data/synthetic_incidents_am.csv", "A–M fields only, as shown in the app"],
+    ["docs/part3_quantification.md / part4_dashboard_design.md", "Technical write-ups"],
+], widths=[2.8, 3.9], font=9)
 
 # --------------------------------------------------------------------------- 3
 
 doc.add_heading("3. Why this targets an outstanding (A) grade", level=1)
-para("The guidance says simply covering the listed items earns a B; an A needs creativity, innovation and "
-     "complex problem solving, plus at least two class methodologies applied in depth. Here is how each "
-     "expectation is met:")
-table(["What the professor looks for", "Typical B-level project", "Our project"], [
-    ["≥ 2 class methodologies, applied", "Names FAIR and NIST on a slide",
-     "FAIR decomposition drives the math; Monte Carlo with probability distributions; NIST 800-53 + CSF 2.0 map every control; Bayesian credibility blends data"],
-    ["Quantify likelihood and impact", "ALE = ARO × SLE with guessed numbers",
-     "Frequencies from cited benchmark + our own reports; losses anchored on Ponemon and Coinbase SEC filings"],
-    ["Use real evidence", "Generic statistics",
-     "Marie's intake sample and 22 cited statistics, each traceable by ID in the app"],
-    ["Model uncertainty", "Single point estimate",
-     "Full loss distribution, 1-in-20/1-in-100 years, tornado, and a test of whether the recommendation changes"],
-    ["Validate the model", "Not done",
-     "Back-tested on the real 2025 breach: $345M sits at the 85th percentile of our escalation range; calibration vs. Ponemon/IBM"],
-    ["Residual risk + ROI", "Before/after for one package",
-     "Residual loss for any portfolio; ROSI; efficient frontier; insurance (risk transfer) vs. mitigation"],
-    ["Heat map / simulation", "Static heat map",
-     "Live department × scenario heat map and response-team workload view"],
-    ["Compliance (SOX, PCI DSS, GDPR)", "List of laws",
-     "Each control mapped to the specific article/requirement it supports (e.g., PCI DSS Req. 10, GDPR Art. 32, SOX §404)"],
-    ["Creativity / innovation", "Slides only",
-     "Working product: live intake → categorize → quantify → dashboard; campaign linking stops double-counting"],
-    ["Consistency", "Numbers differ between slides and report",
-     "One source of truth: results/summary.md regenerates every quoted figure"],
-], widths=[1.6, 1.6, 3.5], font=9)
+para(
+    "Simply naming FAIR and NIST earns a B. An A needs creativity, complex problem solving, and at least two "
+    "class methodologies applied in depth — plus clear answers to Milestone 1’s posture questions "
+    "(assets, obligations, financial impact, gaps, treatment plan, stakeholder/shareholder value)."
+)
+table(["What earns the A", "How we over-fulfill it"], [
+    ["≥ 2 methodologies, applied (not named)",
+     "FAIR LEF×LM decomposition + Monte Carlo distributions + NIST 800-53/CSF mapping on every control + Bayesian update"],
+    ["Quantify likelihood and impact with evidence",
+     "500 A–M incidents → 93 campaigns; prior from Ponemon B14; magnitudes from B03/B11/B15/B18–B20"],
+    ["Uncertainty, not a single ALE",
+     "Full loss distribution, P95/P99/TVaR, tornado, 17-case recommendation stability"],
+    ["Validate",
+     "Back-test: Coinbase FY2025 $345.2M sits on the exceedance curve; calibration vs. Ponemon/IBM"],
+    ["Residual risk + ROI + transfer",
+     "1,024 portfolios, efficient frontier, appetite modes; insurance only when appetite is strict"],
+    ["Department heat map / simulation",
+     "Live company / response-team / business-unit views; Customer support concentration is visible"],
+    ["Compliance depth",
+     "Each control cites 800-53 ID, CSF function, and regulation (PCI DSS, GDPR, SOX, NYDFS, SEC)"],
+    ["Working product (innovation)",
+     "Live intake → categorize → quantify → dashboard; campaign linking prevents double-counting"],
+    ["Milestone 1 executive questions",
+     "Dashboard KPIs + executive brief download answer financial impact, control gaps, plan cost, and ROSI for shareholders"],
+], widths=[2.2, 4.5], font=9)
 
 doc.add_heading("Findings that make the presentation stand out", level=2)
 bullets([
-    ("Concentration: ", "bribed vendor data theft is 57% of expected loss and 92% of the loss in the worst years; "
-                        "Customer support carries $22.6M of the $40.3M."),
-    ("Mean vs. tail: ", "the median year costs $16M but the 1-in-20 year costs $249M. Reporting only an average would mislead the board."),
-    ("Risk transfer is a board decision: ", "no mix of security controls gets the chance of a $100M+ year below about 2%; "
-                                           "reaching 1% needs the insurance tower."),
-    ("No-regret controls: ", "C1, C4, C5, C6, C8 and C9 stay optimal in all 17 stress cases; C2 and C3 depend on "
-                             "assumptions, so pilot them first."),
-    ("Compliance vs. ROI: ", "immutable logging (C7) never pays for itself on expected value but is required by PCI DSS "
-                             "Req. 10, a good example of when regulation overrides ROI."),
-    ("Value of information: ", "escalation probability is the most influential and least-known input, so the "
-                               "dashboard's most valuable data to collect is how often incidents escalate."),
+    ("Concentration: ",
+     "Bribed / colluding exfiltration is ~$77M of the ~$97M expected loss (~80%). Customer support alone is ~$45M."),
+    ("Mean vs. tail: ",
+     "Median year ~$33M, but the 1-in-20 year is ~$381M. Reporting only an average would mislead the board."),
+    ("Risk transfer is a board decision: ",
+     "Mitigation can get P($100M+) to ~3%; reaching ~1–2% needs the insurance tower (C10)."),
+    ("No-regret controls: ",
+     "Core controls stay optimal across stress cases; swing controls should be piloted first."),
+    ("Compliance vs. ROI: ",
+     "Immutable logging (C7) may not maximize net benefit but is required by PCI DSS Req. 10."),
+    ("Value of information: ",
+     "SLEF (escalation probability) dominates the tornado — that is the highest-value data to collect next."),
+    ("Data hygiene: ",
+     "Excluding synthetic USD columns is a methodological strength: magnitudes stay externally cited."),
 ])
 
 # --------------------------------------------------------------------------- 4
 
 doc.add_heading("4. How to open the website", level=1)
 bullets([
-    "Open Terminal and go to the project folder: cd \"Desktop/14817 group project/insider_threat_project\"",
+    'Open Terminal and go to: cd "Desktop/CRM final project code/cmu-CRM-team16-main"',
     "First time only: python3 -m venv .venv  then  source .venv/bin/activate  then  pip install -r requirements.txt",
+    "Import / refresh A–M data: python scripts/import_synthetic.py",
     "Every time: source .venv/bin/activate  then  streamlit run app.py",
-    "Your browser opens http://localhost:8501. Leave the Terminal window open while you use it; press Ctrl+C to stop.",
-    "Optional: pytest -q runs the 13 checks; python scripts/export_results.py refreshes results/summary.md.",
+    "Browser opens http://localhost:8501. Leave Terminal open; Ctrl+C stops the server.",
+    "Optional: pytest -q ; python scripts/export_results.py",
 ], style_name="List Number")
-para("Tip: numbers in this guide use the default settings (10,000 trials, seed 14817, recommended controls). "
-     "If a slider has been moved, refresh the browser page to get back to the defaults.", italic=True, color=GREY)
+para(
+    "Tip: numbers in this guide use defaults (10,000 trials, seed 14817, recommended controls). "
+    "Refresh the browser if sliders were moved.",
+    italic=True, color=GREY,
+)
 
 # --------------------------------------------------------------------------- 5
 
-doc.add_heading("5. Website walkthrough", level=1)
+doc.add_heading("5. Website walkthrough (how to read the dashboard)", level=1)
 para("Red numbers on each screenshot match the numbered explanations below it.")
 
 doc.add_heading("5.1 Landing view (Dashboard tab)", level=2)
 figure("01_overview", "Figure 1. Company-wide landing view")
 callouts([
-    ("Department view drop-down", "Choose Company-wide, a response team, or a business unit. Every number on every tab "
-                                  "re-calculates for that department."),
-    ("Controls to deploy", "The controls currently switched on. Recommended loads the best portfolio; Clear removes all "
-                           "controls so you can see today's (inherent) risk."),
-    ("Model assumptions and Risk appetite", "Expand to change the benchmark, loss sizes, control effectiveness and costs, "
-                                            "or to set the board's tolerance (default: at most 5% chance of a $100M+ year)."),
-    ("KPI strip", "Expected loss per year, the range covering 80% of years (P10–P90), reports this quarter, residual loss "
-                  "after the selected controls, and ROSI (return on security investment)."),
-    ("Tabs", "Six views: Dashboard, Monte Carlo, Controls & ROI, Sensitivity, Report intake, Methodology & sources."),
-    ("Expected loss by scenario", "Grey = today, blue = with the selected controls, for each insider scenario."),
-    ("Recommended controls for this view", "Ranked by how much loss each removes here, with its NIST 800-53 ID, CSF function and "
-                                           "regulation. Pills show deployed, in optimal portfolio, or outside optimal portfolio."),
+    ("Department view drop-down",
+     "Choose Company-wide, a response team, or a business unit. Every number re-calculates."),
+    ("Controls to deploy",
+     "Recommended loads the best portfolio; Clear shows inherent risk."),
+    ("Model assumptions and Risk appetite",
+     "Change prior weight, loss multipliers, effectiveness, or the board tolerance (default ≤5% chance of a $100M+ year)."),
+    ("KPI strip",
+     "Expected loss / yr, P10–P90, reports this quarter, residual loss, ROSI (company view)."),
+    ("Tabs",
+     "Dashboard, Monte Carlo, Controls & ROI, Sensitivity, Report intake, Methodology & sources."),
+    ("Expected loss by scenario",
+     "Grey = inherent, blue = with selected controls."),
+    ("Recommended controls for this view",
+     "Ranked by loss removed here, with NIST / CSF / regulation pills."),
 ])
 
 doc.add_heading("5.2 Choosing a department", level=2)
 figure("02_department_dropdown", "Figure 2. The department drop-down", width=4.2)
 callouts([
-    ("Three kinds of view", "Company-wide; Response teams (Security, IT, Legal, HR, Finance, Insider risk team) = who "
-                            "receives the report; Business units (Customer support, Engineering, Finance and treasury, "
-                            "Human resources, Operations, Sales and marketing, Compliance and risk) = where the insider works. "
-                            "Business units add up exactly to the company total; response teams overlap because one report "
-                            "goes to several teams."),
+    ("Three kinds of view",
+     "Company-wide; Response teams (who receive the report); Business units (where the insider works). "
+     "Business units partition the company total; response teams overlap."),
 ])
 figure("04_customer_support_view", "Figure 3. Business unit · Customer support selected")
 callouts([
-    ("Selected department", "The page title and every chart now refer to Customer support."),
-    ("Department KPIs", "$22.4M of the company's ~$40M sits here. Because control costs are company-wide, the last box "
-                        "shows loss avoided instead of ROSI."),
-    ("Scenario mix", "Almost all of it is bribed data exfiltration ($19.5M)."),
-    ("Department's best controls", "BPO personnel security (PS-7) ranks first here but is outside the company-optimal "
-                                   "portfolio: ticket-scoped access plus fraud friction already remove most of the same loss more "
-                                   "cheaply. The pill makes that trade-off visible."),
+    ("Selected department", "Title and charts now refer to Customer support."),
+    ("Department KPIs",
+     "About $45M of the ~$97M company exposure sits here; the last box shows loss avoided instead of ROSI."),
+    ("Scenario mix", "Dominated by bribed / colluding data exfiltration."),
+    ("Department’s best controls",
+     "BPO personnel security (C3 / PS-7) ranks high here; pills show whether it is in the company-optimal set."),
 ])
 
 doc.add_heading("5.3 Risk appetite and where the risk sits", level=2)
 figure("03_appetite_heatmap", "Figure 4. Lower half of the Dashboard tab")
 callouts([
-    ("Risk appetite check", "Chance of a year above the board's threshold, today vs. with controls, and a pass/fail."),
-    ("Inherent / Residual switch", "Show the heat map before or after the selected controls."),
-    ("Heat map", "Expected loss for every business unit × scenario; the darkest cell is where to act first."),
-    ("Response-team exposure", "How much risk lands in each team's queue."),
-    ("Executive brief", "Downloads a one-page summary of the current view for the report or an email."),
+    ("Risk appetite check", "Chance of a year above the board threshold, inherent vs residual, pass/fail."),
+    ("Inherent / Residual switch", "Heat map before or after selected controls."),
+    ("Heat map", "Business unit × scenario expected loss — darkest cell = act first."),
+    ("Response-team exposure", "How much risk lands in each team’s queue."),
+    ("Executive brief", "One-page Markdown download for the report or an email."),
 ])
 
-doc.add_heading("5.4 Monte Carlo tab (Part 3 results)", level=2)
+doc.add_heading("5.4 Monte Carlo tab", level=2)
 figure("05_monte_carlo", "Figure 5. Simulation results")
 callouts([
-    ("Loss distribution", "10,000 simulated years on a log scale. The right-hand hump is the rare escalation year "
-                          "(extortion, mass scams, regulators)."),
-    ("Loss exceedance curve", "Chance (y) that a year's loss exceeds x. The red X is the board appetite; the orange "
-                              "lines are Coinbase's 8-K estimate and the actual FY2025 loss."),
-    ("Tail statistics", "Average, median, 1-in-20 and 1-in-100 years, and TVaR (average of the worst 5% of years)."),
-    ("What drives the tail", "Bribed exfiltration is 57% of the average but about 92% of the worst years."),
-    ("Back-test", "Compares the model to the real 2025 breach without being fitted to it (company-wide view only)."),
+    ("Loss distribution", "10,000 simulated years on a log scale; right hump = rare escalation years."),
+    ("Loss exceedance curve",
+     "P(loss ≥ x). Board appetite marker; Coinbase 8-K $180M and FY2025 $345M reference lines."),
+    ("Tail statistics", "Mean, median, P95, P99, TVaR 95."),
+    ("What drives the tail", "Bribed exfiltration dominates both the mean and the worst years."),
+    ("Back-test", "Compares the model to the real 2025 breach without fitting to it."),
 ])
 
 doc.add_heading("5.5 Controls & ROI tab", level=2)
 figure("06_controls_portfolio", "Figure 6. Choosing a control portfolio")
 callouts([
-    ("Objective", "Maximize net benefit, find the cheapest portfolio that meets the risk appetite, or the best "
-                  "portfolio within a budget (a slider appears)."),
-    ("Result", "Cost, net benefit and tail probability of the portfolio the objective picks."),
-    ("Deploy this portfolio", "Switches those controls on in the sidebar; every tab updates."),
-    ("Frontier chart", "Each dot is one of the 1,024 combinations. Green = within appetite, blue line = best possible "
-                       "for each budget, star = currently selected, diamond = objective's pick. Points below the red "
-                       "line pay for themselves."),
+    ("Objective", "Max net benefit, cheapest within appetite, or best within a budget."),
+    ("Result", "Cost, net benefit, and tail probability of the picked portfolio."),
+    ("Deploy this portfolio", "Writes those controls into the sidebar; every tab updates."),
+    ("Frontier chart",
+     "All 1,024 combinations; green = within appetite; star = current; diamond = objective pick."),
 ])
 figure("07_control_catalog", "Figure 7. Control catalog and scenario effects")
 callouts([
-    ("Control catalog", "Cost, loss avoided alone, our modeled % vs. the Ponemon benchmark %, marginal value given the "
-                        "other selected controls, plus NIST 800-53, CSF 2.0, regulation and the gap it closes."),
-    ("Scenario effect", "How much each scenario's loss falls with the selected controls."),
+    ("Control catalog",
+     "Cost, standalone value, modeled % vs Ponemon %, marginal net benefit, NIST, CSF, regulation, gap closed."),
+    ("Scenario effect", "How each scenario’s ALE falls with the selected controls."),
 ])
 
 doc.add_heading("5.6 Sensitivity tab", level=2)
 figure("08_sensitivity", "Figure 8. Tornado chart")
 callouts([
-    ("Output to stress-test", "Today's loss, loss after controls, or net benefit of the selected controls."),
-    ("Tornado", "Each bar moves one input from the low to the high end of its range; the longest bar matters most."),
-    ("What would change our answer", "Names the input with the highest value of better information."),
+    ("Output to stress-test", "Inherent loss, residual loss, or net benefit."),
+    ("Tornado", "Longest bar = highest value of information."),
+    ("What would change our answer", "Usually SLEF / escalation probability."),
 ])
 figure("09_robustness", "Figure 9. Is the recommendation robust?")
 callouts([
-    ("Stability chart", "Share of 17 stress cases in which each control is in the best portfolio."),
-    ("Interpretation", "Core = no-regret; swing = pilot first; never optimal = justify only by regulation or appetite."),
+    ("Stability chart", "Share of 17 stress cases where each control is optimal."),
+    ("Interpretation", "Core = no-regret; swing = pilot; never-optimal = justify by regulation/appetite."),
 ])
 
-doc.add_heading("5.7 Report intake tab (Parts 1–2, live)", level=2)
-figure("10_intake_form", "Figure 10. Submitting a new report", width=5.6)
+doc.add_heading("5.7 Report intake tab — what data is / isn’t available", level=2)
+figure("10_intake_form", "Figure 10. Synthetic A–M fields + live form", width=5.6)
 callouts([
-    ("Starting numbers", "Note the expected loss ($40.3M) before submitting."),
-    ("Web form", "Same fields as our department form, plus the analyst's incident type (A) and impact categories (C)."),
-    ("Submit report", "The report is categorized, routed and fed into the model immediately (session only; the "
-                      "original data files are not changed)."),
+    ("A–M table", "Shows the thirteen synthetic fields the model uses; USD columns are absent by design."),
+    ("Live web form", "Optional: submit a new report in-session; it categorizes, routes, and updates LEF."),
+    ("What is available",
+     "Incident attributes, detection/containment lags, motivation, impact class, mapped FAIR scenario, campaigns."),
+    ("What is not available",
+     "Synthetic USD loss columns; confirmed real Coinbase case-level PII; unit-level insurance retentions."),
 ])
-figure("11_intake_result", "Figure 11. What happens after submitting", width=5.8)
+figure("11_intake_result", "Figure 11. Categorized log and campaigns", width=5.8)
 callouts([
-    ("Confirmation", "Shows who it was routed to, whether it opened a new campaign or joined an existing one, and how "
-                     "company expected loss moved (here $40.3M → $48.4M for a new Operations campaign)."),
-    ("Categorized reports", "Every report with the A/B/C/D labels: incident type, CIA property and severity, FAIR loss "
-                            "forms, credibility, records, days to report, campaign and routing."),
-    ("Linked campaigns", "What the frequency model actually counts. IR-0001, -0002 and -0008 are one bribery ring, so "
-                         "it is counted once, not three times."),
+    ("Categorized reports", "A/B/C/D labels, credibility, records, days to detect, campaign, routing."),
+    ("Linked campaigns", "What the frequency model actually counts (93 campaigns from 500 rows)."),
 ])
 
 doc.add_heading("5.8 Methodology & sources tab", level=2)
 figure("12_methodology", "Figure 12. How the numbers are produced")
 callouts([
-    ("Pipeline", "Report → Categorize → Quantify → Dashboard, with new reports feeding back into the estimate."),
-    ("FAIR ontology", "Which FAIR factor each input feeds and its source ID (B-numbers refer to data/benchmarks.csv)."),
-    ("Bayesian update", "Prior, observed and updated frequency per scenario. The credibility factor (0.15) shows how far "
-                        "our own reports move the estimate away from the Ponemon benchmark."),
+    ("Pipeline", "Synthetic A–M → Categorize → Quantify → Dashboard."),
+    ("FAIR ontology", "Which FAIR factor each input feeds; B-IDs point to data/benchmarks.csv."),
+    ("Bayesian update", "Prior / observed / posterior rates; credibility factor Z ≈ 0.83 with ~5 years of history."),
 ])
-para("Further down this tab: calibration against Ponemon/IBM, every scenario parameter with its basis, the full "
-     "cited-statistics table with links, and the limitations list.")
 
 # --------------------------------------------------------------------------- 6
 
-doc.add_heading("6. Three-minute live demo for the presentation", level=1)
+doc.add_heading("6. Dashboard design choices (why it looks this way)", level=1)
 bullets([
-    ("Company-wide: ", "\"Expected loss is $40M a year, but the 1-in-20 year is $249M, and Coinbase's real $345M "
-                       "loss sits on our curve.\" Show the Monte Carlo tab."),
-    ("Drop-down → Business unit · Customer support: ", "\"$22M of it is here, almost all bribed exfiltration.\""),
-    ("Clear, then Recommended: ", "residual loss falls to about $8M; ROSI is about 330%."),
-    ("Controls & ROI → Cheapest within appetite, appetite set to 1%: ", "\"Only insurance gets there; that's a board decision.\""),
-    ("Report intake → submit a confirmed Operations contractor exfiltration: ", "expected loss jumps about $8M. Submit the "
-     "same for Customer support BPO staff: it links to the existing ring and does not double-count."),
-    ("Sensitivity: ", "\"Even at 8% escalation the six core controls stay optimal.\""),
-], style_name="List Number")
+    ("One composition per job: ",
+     "Landing tab answers “where is the risk and are we within appetite?” Monte Carlo answers “how bad can it get?” "
+     "Controls answers “what should we buy?” Sensitivity answers “what if we are wrong?”"),
+    ("Department drop-down first: ",
+     "Insider programs fail when risk is only company-average. Business-unit thinning makes budget ownership real."),
+    ("Pills for control status: ",
+     "A control can be best for one unit yet outside the company-optimal portfolio — the UI shows that tension."),
+    ("Log scales: ",
+     "Losses span four orders of magnitude; linear axes hide the escalation hump."),
+    ("A–M transparency: ",
+     "Methodology tab lists every synthetic field used and every USD field excluded."),
+    ("Reproducibility: ",
+     "Fixed seed 14817 and trial count are shown; results/summary.md regenerates every quoted figure."),
+])
 
 # --------------------------------------------------------------------------- 7
 
-doc.add_heading("7. Questions the professor may ask, and our answers", level=1)
-table(["Question", "Answer"], [
-    ["Where do your frequencies come from?",
-     "Ponemon/DTEX 2026 (6.3 malicious incidents per org per year) as a prior, updated with our credibility-weighted "
-     "reports via a Gamma-Poisson model. The credibility factor (0.15) shows how much our 63 days of data count."],
-    ["Ten reports is a tiny sample.",
-     "That is why we use a Bayesian prior rather than the raw rate (which would be 30/yr). The estimate moves toward "
-     "our data automatically as reports accumulate."],
-    ["How do you avoid double counting?",
-     "Campaign linking (one ring = one event), FAIR primary vs. secondary loss forms, and multiplicative stacking of "
-     "control effects so overlapping controls never exceed 100%."],
-    ["Why trust the loss sizes?",
-     "Ranges are anchored on Ponemon costs and Coinbase's 8-K/10-K; the model reproduces the real $345M event at the "
-     "85th percentile without being fitted to it."],
-    ["What is the weakest assumption?",
-     "Escalation probability. The tornado shows it is the most influential input, so we tested 1%–8% and showed the "
-     "core recommendation does not change."],
-    ["Are your control effects realistic?",
-     "Each is kept at or below its Ponemon benchmark (e.g., PAM: 16% modeled vs. 31% benchmark), because Ponemon "
-     "reports associations, not causal effects."],
-    ["Why not deploy everything?",
-     "The frontier flattens after about $8M/yr; extra spend buys less than a dollar of loss reduction per dollar."],
-], widths=[2.0, 4.7], font=9)
+doc.add_heading("7. Three-to-four-minute live demo script (Amy)", level=1)
+bullets([
+    ("0:00–0:40 Company-wide: ",
+     "“Expected loss is about $97M a year, but the 1-in-20 year is ~$381M. Coinbase’s real $345M sits on our curve.” "
+     "Point to Monte Carlo exceedance."),
+    ("0:40–1:20 Department: ",
+     "Drop-down → Business unit · Customer support. “About $45M of it lives here — mostly bribed exfiltration.”"),
+    ("1:20–2:00 Controls: ",
+     "Clear, then Recommended. Residual falls to ~$11M; ROSI ~700%. Mention C3 now enters the optimal set."),
+    ("2:00–2:40 Appetite / transfer: ",
+     "Controls & ROI → cheapest within appetite at 2%. “Insurance appears; that is a board decision.”"),
+    ("2:40–3:20 Data available / not: ",
+     "Report intake → A–M table. “We use incident attributes only — not the synthetic USD columns.”"),
+    ("3:20–3:50 Design why: ",
+     "Sensitivity → SLEF bar. “We designed for decisions under uncertainty, not a single ALE.”"),
+], style_name="List Number")
 
 # --------------------------------------------------------------------------- 8
 
-doc.add_heading("8. Before we submit", level=1)
+doc.add_heading("8. Questions the professor may ask", level=1)
+table(["Question", "Answer"], [
+    ["Where do frequencies come from?",
+     "Ponemon/DTEX 2026 (6.3 malicious/yr) as prior, updated with 93 credibility-weighted campaigns from 500 A–M "
+     "incidents (~5 years). Z ≈ 0.83."],
+    ["Why exclude the USD columns?",
+     "So the model is not circular. Magnitudes stay anchored on cited benchmarks and Coinbase SEC filings."],
+    ["How do you avoid double counting?",
+     "Campaign linking; FAIR primary vs secondary forms; multiplicative control stacking capped below 100%."],
+    ["Why trust the loss sizes?",
+     "Ranges from Ponemon + Coinbase 8-K/10-K; the $345M actual sits on the modeled escalation range."],
+    ["What is the weakest assumption?",
+     "SLEF. Tornado shows it; we test 1%–8% and check recommendation stability."],
+    ["Why should shareholders care?",
+     "Residual ALE falls by ~$86M for ~$11M spend (ROSI ~700%); tail P($100M+) falls from 22% to 3.3%."],
+], widths=[2.0, 4.7], font=9)
+
+# --------------------------------------------------------------------------- 9
+
+doc.add_heading("9. Before we submit", level=1)
 bullets([
-    "Confirm the NYDFS 2023 Coinbase penalty ($50M) used as an anchor for privileged-abuse secondary loss.",
-    "Escalation probability, report credibility weights, control effects and control costs are team estimates. They "
-    "are labeled in the data files and app; say so in the report.",
-    "report_draft.md and presentation_outline.md still describe the old generic bank; use docs/part3_quantification.md "
-    "and docs/part4_dashboard_design.md for Parts 3 and 4 instead.",
-    "Limitations to state: small sample, one anchor event for secondary loss, scenarios simulated independently, "
-    "insurance modeled as a proportional reduction.",
-    "Quote numbers from results/summary.md so the slides, report and dashboard always match.",
+    "Quote numbers only from results/summary.md after python scripts/export_results.py.",
+    "Say clearly: synthetic A–M history; USD columns excluded; SLEF/control effects are labeled team estimates.",
+    "Screenshots: streamlit run app.py then python scripts/capture_screenshots.py.",
+    "Pair this guide with Amy’s write-up sections (code + how to interpret) and the 3–4 minute demo pack.",
 ])
 
 doc.save(OUT)

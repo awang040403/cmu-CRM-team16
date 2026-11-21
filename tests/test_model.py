@@ -12,7 +12,8 @@ from insider_risk.controls import (  # noqa: E402
     best_portfolio, cheapest_within_appetite, efficient_frontier, evaluate_all_portfolios,
 )
 from insider_risk.data import (  # noqa: E402
-    BUSINESS_UNITS, load_control_effects, load_controls, load_reports, load_scenarios,
+    BUSINESS_UNITS, SYNTHETIC_AM_COLS, load_control_effects, load_controls, load_reports,
+    load_scenarios, load_synthetic_am,
 )
 from insider_risk.quantify import (  # noqa: E402
     Assumptions, apply_controls, build_inputs, exceedance_probability, expected_annual_loss,
@@ -27,18 +28,22 @@ def model():
     return {"cat": cat, "scenarios": scenarios, "controls": load_controls(), "effects": load_control_effects()}
 
 
-def test_intake_log_has_marie_reports(model):
-    assert len(model["cat"]) == 10
+def test_intake_log_uses_synthetic_am_only(model):
+    reports = load_reports()
+    synth = load_synthetic_am()
+    assert len(model["cat"]) == 500
+    assert len(synth) == 500
+    assert list(synth.columns) == SYNTHETIC_AM_COLS
+    assert not any(c.endswith("_usd") or c == "total_loss_usd" for c in reports.columns)
     assert set(model["cat"].scenario_id) <= {"S1", "S2", "S3", "S4", "P0"}
 
 
-def test_bribery_reports_are_one_campaign(model):
-    cat = model["cat"].set_index("report_id")
-    ids = ["IR-2026-0001", "IR-2026-0002", "IR-2026-0008"]
-    assert cat.loc[ids, "campaign_id"].nunique() == 1
+def test_campaign_linking_collapses_related_incidents(model):
     camp = campaigns(model["cat"])
-    assert camp.event_weight.max() == 1.0          # IR-0008 has a confirmed external party
-    assert "P0" not in set(camp.scenario_id)        # precursors are not loss events
+    assert len(camp) < len(model["cat"])          # 500 rows → fewer loss events
+    assert camp.event_weight.max() == 1.0         # confirmed external tip → credibility 1.0
+    assert "P0" not in set(camp.scenario_id)      # precursors are not loss events
+    assert camp.n_reports.max() >= 2              # at least one multi-report campaign
 
 
 def test_posterior_equals_prior_without_data(model):

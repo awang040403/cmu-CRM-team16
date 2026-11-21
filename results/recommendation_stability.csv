@@ -1,18 +1,18 @@
 case,best_portfolio,net_benefit,same_as_base
-Base assumptions,"C1, C2, C4, C5, C6, C8, C9",25013289.04540295,True
-Industry prior frequency = 3.15 (low),"C1, C4, C5, C6, C8, C9",15967822.261057403,False
-Industry prior frequency = 13.8 (high),"C1, C2, C3, C4, C5, C6, C8, C9",47386414.6114524,False
-Weight on industry prior (years) = 0.25 (low),"C1, C2, C4, C5, C6, C8, C9",44119147.21054371,True
-Weight on industry prior (years) = 4 (high),"C1, C4, C5, C6, C8, C9",17433655.03316479,False
-Report credibility weights = 0.5 (low),"C1, C4, C5, C6, C8, C9",18127053.681064256,False
-Report credibility weights = 1.5 (high),"C1, C2, C4, C5, C6, C8, C9",25888932.841148116,True
-Primary loss magnitude = 0.5 (low),"C1, C4, C5, C6, C8, C9",18594880.95884699,False
-Primary loss magnitude = 2 (high),"C1, C2, C4, C5, C6, C8, C9",38055947.992651835,True
-Escalation probability (SLEF) = 0.33 (low),"C1, C4, C5, C6, C8, C9",12407154.73070715,False
-Escalation probability (SLEF) = 2.67 (high),"C1, C2, C3, C4, C5, C6, C8, C9",58663902.05193177,False
-Secondary loss magnitude (SLM) = 0.5 (low),"C1, C4, C5, C6, C8, C9",15499994.983274654,False
-Secondary loss magnitude (SLM) = 1.5 (high),"C1, C2, C4, C5, C6, C8, C9",34798604.09448002,True
-Control effectiveness = 0.5 (low),"C1, C2, C4, C5, C6, C8, C9",13995023.169236261,True
-Control effectiveness = 1.25 (high),"C1, C4, C5, C6, C8, C9",28211101.24264747,False
-Control cost = 0.5 (low),"C1, C2, C3, C4, C5, C6, C8, C9",29157518.63164512,False
-Control cost = 1.5 (high),"C1, C4, C5, C6, C8, C9",21796583.961414445,False
+Base assumptions,"C1, C2, C3, C4, C5, C6, C8, C9",73910615.80370748,True
+Industry prior frequency = 3.15 (low),"C1, C2, C3, C4, C5, C6, C8, C9",71958799.88053992,True
+Industry prior frequency = 13.8 (high),"C1, C2, C3, C4, C5, C6, C8, C9",78557796.57315402,True
+Weight on industry prior (years) = 0.25 (low),"C1, C2, C3, C4, C5, C6, C8, C9",82780635.66770352,True
+Weight on industry prior (years) = 4 (high),"C1, C2, C3, C4, C5, C6, C8, C9",53319207.09829563,True
+Report credibility weights = 0.5 (low),"C1, C2, C3, C4, C6, C8, C9",33995252.12467721,False
+Report credibility weights = 1.5 (high),"C1, C2, C3, C4, C5, C6, C8, C9",80526081.31604373,True
+Primary loss magnitude = 0.5 (low),"C1, C2, C3, C4, C5, C6, C8, C9",61619031.79991731,True
+Primary loss magnitude = 2 (high),"C1, C2, C3, C4, C5, C6, C8, C9",98493783.81128782,True
+Escalation probability (SLEF) = 0.33 (low),"C1, C2, C3, C4, C5, C6, C8, C9",33759225.78030229,True
+Escalation probability (SLEF) = 2.67 (high),"C1, C2, C3, C4, C5, C6, C8, C9, C10",173994339.31348646,False
+Secondary loss magnitude (SLM) = 0.5 (low),"C1, C2, C3, C4, C5, C6, C8, C9",43946891.90564385,True
+Secondary loss magnitude (SLM) = 1.5 (high),"C1, C2, C3, C4, C5, C6, C8, C9",103874339.70177129,True
+Control effectiveness = 0.5 (low),"C1, C2, C3, C4, C5, C6, C8, C9",49643418.594330594,True
+Control effectiveness = 1.25 (high),"C1, C2, C3, C4, C5, C6, C8, C9",79310727.29849365,True
+Control cost = 0.5 (low),"C1, C2, C3, C4, C5, C6, C8, C9",79210615.80370748,True
+Control cost = 1.5 (high),"C1, C2, C3, C4, C6, C8, C9",68740886.0059684,False

@@ -25,8 +25,9 @@ from insider_risk.controls import (  # noqa: E402
     efficient_frontier, evaluate_all_portfolios, scenario_reduction,
 )
 from insider_risk.data import (  # noqa: E402
-    BUSINESS_UNITS, RESPONSE_TEAMS, benchmark_value, department_options, load_benchmarks,
-    load_control_effects, load_controls, load_reports, load_scenarios, parse_department, split_multi,
+    BUSINESS_UNITS, RESPONSE_TEAMS, SYNTHETIC_AM_COLS, benchmark_value, department_options,
+    load_benchmarks, load_control_effects, load_controls, load_reports, load_scenarios,
+    load_synthetic_am, parse_department, split_multi,
 )
 from insider_risk.quantify import (  # noqa: E402
     Assumptions, apply_controls, build_inputs, calibration_check, exceedance_curve, exceedance_probability,
@@ -193,7 +194,7 @@ with st.sidebar:
                                benchmark_value(benchmarks, "B14"), 0.1, help="Ponemon/DTEX 2026 (B14) = 6.3")
         prior_weight = st.slider("Weight on industry prior (years)", 0.25, 5.0, 1.0, 0.25,
                                  help="How many years of internal reports the benchmark is worth. "
-                                      "Lower = trust Marie's intake data more.")
+                                      "Lower = trust the synthetic A–M history more.")
         cred_scale = st.slider("Report credibility scale", 0.5, 1.5, 1.0, 0.05)
         prim_mult = st.slider("Primary-loss multiplier", 0.5, 2.0, 1.0, 0.05)
         slef_mult = st.slider("Escalation probability (SLEF) multiplier", 0.33, 3.0, 1.0, 0.01)
@@ -245,9 +246,10 @@ selected_cost = controls.loc[controls.control_id.isin(selected), "annual_cost"].
 
 st.markdown(f"## {dept_label}")
 st.markdown(
-    '<div class="poc-banner">Proof of concept: frequencies blend Ponemon/DTEX 2026 benchmarks with Marie\'s '
-    f'{len(base_reports)} sample web-form reports; magnitudes are anchored on Ponemon and Coinbase SEC filings. '
-    'Team estimates are labeled in the Methodology tab.</div>', unsafe_allow_html=True)
+    '<div class="poc-banner">Proof of concept: frequencies blend Ponemon/DTEX 2026 benchmarks with Dheya\'s '
+    f'synthetic history ({len(base_reports)} incidents, workbook columns <b>A–M only</b> — no USD loss fields). '
+    'Magnitudes are anchored on Ponemon and Coinbase SEC filings. Team estimates are labeled in Methodology.</div>',
+    unsafe_allow_html=True)
 
 def money_short(x: float) -> str:
     return f"${x / 1e6:.0f}M" if abs(x) >= 1e6 else money(x)
@@ -684,6 +686,35 @@ with tabs[4]:
                 st.session_state.extra_reports = []
                 st.rerun()
 
+    st.markdown("##### Synthetic source fields used by the web app (columns A–M only)")
+    st.caption(
+        "The website never loads USD loss columns (N–T: regulatory_usd … total_loss_usd). "
+        "Only the thirteen fields below feed categorization and the FAIR frequency model."
+    )
+    synth_view_cols = [c for c in [
+        "report_id", "incident_type", "business_line", "insider_role", "work_arrangement",
+        "records_exposed", "days_to_detect", "detection_method", "days_to_contain",
+        "prior_warning_signs", "motivation", "primary_impact_category",
+    ] if c in view_reports.columns]
+    if synth_view_cols:
+        st.dataframe(view_reports[synth_view_cols], hide_index=True, width="stretch",
+                     column_config={
+                         "report_id": "A · incident_id",
+                         "incident_type": "C · incident_type",
+                         "business_line": "D · business_line",
+                         "insider_role": "E · insider_role",
+                         "work_arrangement": "F · work_arrangement",
+                         "records_exposed": "G · records_exposed",
+                         "days_to_detect": "H · days_to_detect",
+                         "detection_method": "I · detection_method",
+                         "days_to_contain": "J · days_to_contain",
+                         "prior_warning_signs": "K · prior_warning_signs",
+                         "motivation": "L · motivation",
+                         "primary_impact_category": "M · primary_impact_category",
+                     })
+    else:
+        st.info("Synthetic A–M fields are not attached to this view; showing categorized labels only.")
+
     st.markdown("##### Categorized reports (Part 2: A · B · C · D)")
     st.dataframe(
         view_reports[["report_id", "report_date", "subject_team", "subject_type", "scenario_name", "intent",
@@ -701,8 +732,8 @@ with tabs[4]:
             "campaign_id": "Campaign", "note": st.column_config.TextColumn("Note", width="large"),
         })
     st.markdown("##### Linked campaigns (what the frequency model counts)")
-    st.caption("Reports with the same scenario, business unit and insider type within 90 days are one campaign. "
-               "IR-0001, IR-0002 and IR-0008 arrived seven weeks apart and describe the same bribery ring.")
+    st.caption("Incidents with the same FAIR scenario, business unit and insider type within 90 days are one "
+               "campaign (one loss event). This stops a multi-report bribery ring from inflating frequency.")
     st.dataframe(campaigns(categorized), hide_index=True, width="stretch",
                  column_config={"campaign_id": "Campaign", "scenario_id": "Scenario", "subject_team": "Business unit",
                                 "reports": "Reports", "n_reports": "# reports",
@@ -711,8 +742,12 @@ with tabs[4]:
                                 "event_weight": st.column_config.NumberColumn(
                                     "Event weight", format="%.2f",
                                     help="Highest report credibility in the campaign = probability it is a real event")})
-    st.download_button("Download intake log (CSV)", categorized.to_csv(index=False).encode(),
-                       "insider_reports_categorized.csv", "text/csv")
+    am_csv = load_synthetic_am().to_csv(index=False).encode()
+    cdl1, cdl2 = st.columns(2)
+    cdl1.download_button("Download A–M synthetic fields (CSV)", am_csv,
+                         "synthetic_incidents_am.csv", "text/csv")
+    cdl2.download_button("Download categorized log (CSV)", categorized.to_csv(index=False).encode(),
+                         "insider_reports_categorized.csv", "text/csv")
 
 # --------------------------------------------------------------------------- tab 6: methodology
 
@@ -721,12 +756,40 @@ with tabs[5]:
     st.graphviz_chart("""
 digraph { rankdir=LR; bgcolor="transparent"; node [shape=box style="rounded,filled" fontname="Helvetica"
   fillcolor="#1E2230" fontcolor="#E5E7EB" color="#3B82F6"]; edge [color="#9CA3AF"];
-  R [label="1. Report\\nDepartment web forms\\n(Marie's intake sample)"];
-  C [label="2. Categorize\\nA incident type · B CIA + severity\\nC FAIR loss forms · D credibility, records\\n+ campaign linking"];
+  R [label="1. Synthetic history\\nColumns A–M only\\n(no USD loss fields)"];
+  C [label="2. Categorize\\nMap to FAIR scenarios\\nB CIA + severity · C loss forms\\nD credibility, records\\n+ campaign linking"];
   Q [label="3. Quantify\\nGamma-Poisson LEF (Ponemon prior)\\nLognormal primary + secondary loss\\n10,000-trial Monte Carlo"];
   D [label="4. Dashboard\\nDepartment & company views\\nControls, ROI, appetite\\nNIST 800-53 / CSF 2.0 / regulation" fillcolor="#0F3D2E" color="#10B981"];
-  R -> C -> Q -> D; D -> R [label=" new reports update\\n the posterior" style=dashed fontcolor="#9CA3AF" fontsize=10];
+  R -> C -> Q -> D; D -> R [label=" live intake updates\\n the posterior" style=dashed fontcolor="#9CA3AF" fontsize=10];
 }""", width="stretch")
+
+    st.markdown("##### What the website uses from `synthetic_insider_incidents.xlsx`")
+    st.markdown(
+        "Only **columns A–M** are loaded. Loss-dollar columns (N–T) are deliberately excluded so the web app "
+        "does not treat synthetic USD magnitudes as ground truth; FAIR loss magnitude still comes from cited "
+        "Ponemon / Coinbase SEC anchors in `scenarios.csv`."
+    )
+    st.dataframe(pd.DataFrame({
+        "Column": list("ABCDEFGHIJKLM"),
+        "Field": SYNTHETIC_AM_COLS,
+        "Role in the model": [
+            "Primary key / report id",
+            "Event date → observation window",
+            "Insider class → FAIR scenario mapping (A)",
+            "Maps to Coinbase business-unit view",
+            "Insider role → subject type / access",
+            "Work arrangement → location",
+            "Exact record count (D · quant metric)",
+            "Detection lag (D · quant metric)",
+            "Evidence proxy → credibility weight",
+            "Containment speed (leading indicator)",
+            "Warning-sign count (leading indicator)",
+            "Motivation → scenario / intent mapping",
+            "Pollmeier impact class → FAIR loss forms (C)",
+        ],
+    }), hide_index=True, width="stretch")
+    st.dataframe(load_synthetic_am().head(8), hide_index=True, width="stretch")
+    st.caption(f"Showing 8 of {len(load_synthetic_am())} A–M rows. Full file downloadable on the Report intake tab.")
 
     st.markdown("##### FAIR ontology: where each number comes from")
     st.graphviz_chart("""
@@ -791,11 +854,14 @@ digraph { rankdir=TB; bgcolor="transparent"; node [shape=box style="rounded,fill
 
     st.markdown("##### Assumptions and limitations")
     st.markdown("""
-- **Sample size.** Ten sample reports over about two months. The Gamma prior keeps the estimate anchored to
-  Ponemon until enough internal data accumulates; the credibility factor shows how much the data counts.
-- **Reports are not confirmed incidents.** Each report is weighted by evidence strength (system log 0.9 down to
-  "nothing yet" 0.3; a confirmed external party counts as 1.0). These weights are analyst judgments and are
+- **Synthetic history, A–M only.** The website uses 500 synthetic incidents (columns A–M). USD loss columns
+  from the spreadsheet are **not** loaded; dollar magnitudes still come from cited Ponemon / Coinbase SEC
+  anchors so the model is not circular with its own synthetic dollars.
+- **Credibility.** Detection method is mapped to evidence strength (monitoring/audit → system log 0.9;
+  whistleblower → chat 0.6; tip/complaint → witness 0.7; confirmed external tip → 1.0). Weights are
   stress-tested in the Sensitivity tab.
+- **Campaign linking.** Same scenario + business unit + insider type within 90 days counts as one loss event,
+  so 500 rows become far fewer frequency observations.
 - **Independence.** Scenarios are simulated independently. One bribed vendor team could trigger several
   scenarios at once, so the tail may be understated. Gamma parameter uncertainty partly offsets this.
 - **Control effects** are team estimates kept at or below Ponemon's cross-sectional benchmarks, and they combine

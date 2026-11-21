@@ -1,0 +1,501 @@
+incident_id,incident_date,incident_type,business_line,insider_role,work_arrangement,records_exposed,days_to_detect,detection_method,days_to_contain,prior_warning_signs,motivation,primary_impact_category
+INC-0001,2025-07-06,Compromised Employee,Payments,Operations,Remote,16060,9,Audit/review,2,0,Sensitive personal information,Customer
+INC-0002,2021-01-27,Internal Employee,Payments,IT/Admin,Remote,494,0,Whistleblower report,1,3,Grudge,Response
+INC-0003,2021-01-26,Employee Device/ID Theft,Retail Banking,Customer Support,Remote,28659,5,Customer complaint,3,1,Sensitive personal information,Customer
+INC-0004,2021-06-03,Compromised Employee,Retail Banking,Operations,On-site,10211,3,Monitoring alert,5,1,Sensitive personal information,Customer
+INC-0005,2024-04-02,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,48571,29,External tip/extortion demand,1,2,Ransom,Cost of Capital
+INC-0006,2025-07-07,Employee Device/ID Theft,Payments,Customer Support,On-site,1830,6,Whistleblower report,10,0,Sensitive personal information,Forensic
+INC-0007,2022-03-03,Compromised Employee,Retail Banking,Operations,Hybrid,19984,16,Monitoring alert,0,1,Business disruption,Forensic
+INC-0008,2025-04-16,Compromised Employee,Payments,Operations,Remote,41042,3,Monitoring alert,0,0,Hacktivism,Customer
+INC-0009,2025-06-08,Third-Party,Payments,IT/Admin,Hybrid,41847,5,Whistleblower report,3,0,Sensitive personal information,Regulatory
+INC-0010,2025-10-17,Internal Employee,Commercial Banking,Branch/Teller,On-site,431,33,External tip/extortion demand,1,5,Business disruption,Response
+INC-0011,2021-03-28,Internal Employee,Retail Banking,Branch/Teller,On-site,1729,12,Customer complaint,3,0,Hacktivism,Forensic
+INC-0012,2021-04-04,Employee Device/ID Theft,Retail Banking,Customer Support,On-site,9773,3,Monitoring alert,5,1,Sensitive personal information,Customer
+INC-0013,2021-06-12,Compromised Employee,Commercial Banking,Operations,Remote,2036,2,External tip/extortion demand,4,0,Ransom,Customer
+INC-0014,2023-11-05,Employee Device/ID Theft,Retail Banking,IT/Admin,On-site,9290,3,Monitoring alert,1,0,Business disruption,Customer
+INC-0015,2022-04-29,Internal Employee,Retail Banking,Branch/Teller,Remote,1539,4,External tip/extortion demand,11,1,Grudge,Customer
+INC-0016,2021-01-08,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,15677,10,Monitoring alert,2,1,Business disruption,Regulatory
+INC-0017,2022-09-18,Compromised Employee,Wealth Management,Operations,Remote,5454,12,Audit/review,2,0,Sensitive personal information,Customer
+INC-0018,2023-05-08,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,809,54,Monitoring alert,10,0,Sensitive personal information,Customer
+INC-0019,2022-09-20,Employee Device/ID Theft,Retail Banking,Customer Support,On-site,15994,3,Monitoring alert,2,0,Sensitive personal information,Customer
+INC-0020,2022-05-23,Compromised Employee,Retail Banking,Customer Support,Hybrid,11179,3,External tip/extortion demand,5,0,Hacktivism,Response
+INC-0021,2022-03-02,Compromised Employee,Retail Banking,IT/Admin,On-site,4096,6,Monitoring alert,3,1,Business disruption,Forensic
+INC-0022,2025-06-24,Internal Employee,Commercial Banking,Customer Support,Hybrid,1421,59,Audit/review,7,1,Grudge,Customer
+INC-0023,2023-08-23,Employee Device/ID Theft,Retail Banking,Operations,Remote,20242,30,Monitoring alert,3,2,Ransom,Response
+INC-0024,2023-08-29,Employee Device/ID Theft,Retail Banking,Operations,On-site,1239,2,External tip/extortion demand,8,1,Ransom,Customer
+INC-0025,2022-10-22,Compromised Employee,Retail Banking,Customer Support,Hybrid,2292,33,External tip/extortion demand,2,0,Business disruption,Customer
+INC-0026,2025-09-26,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,23130,40,External tip/extortion demand,5,1,Sensitive personal information,Customer
+INC-0027,2023-08-07,Internal Employee,Wealth Management,IT/Admin,On-site,3193,14,Monitoring alert,2,2,Grudge,Customer
+INC-0028,2022-12-31,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,45087,12,Customer complaint,6,0,Sensitive personal information,Customer
+INC-0029,2025-09-23,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,16631,173,Monitoring alert,2,2,Ransom,Customer
+INC-0030,2021-10-08,Compromised Employee,Capital Markets,Operations,On-site,8617,11,External tip/extortion demand,2,0,Ransom,Regulatory
+INC-0031,2022-05-28,Compromised Employee,Retail Banking,Branch/Teller,On-site,14924,2,Audit/review,5,0,Hacktivism,Customer
+INC-0032,2021-05-04,Employee Device/ID Theft,Payments,Branch/Teller,On-site,3615,35,Monitoring alert,2,0,Sensitive personal information,Response
+INC-0033,2025-10-11,Internal Employee,Retail Banking,Branch/Teller,On-site,3052,42,Monitoring alert,4,1,Grudge,Forensic
+INC-0034,2025-05-12,Internal Employee,Commercial Banking,IT/Admin,On-site,1067,298,Monitoring alert,12,2,Sensitive personal information,Response
+INC-0035,2023-08-10,Internal Employee,Retail Banking,Branch/Teller,Remote,2052,29,Customer complaint,4,1,Ransom,Customer
+INC-0036,2021-11-18,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,28581,92,Whistleblower report,2,1,Ransom,Cost of Capital
+INC-0037,2025-01-01,Third-Party,Capital Markets,Vendor/Contractor Staff,Remote,5198,9,Customer complaint,3,0,Business disruption,Customer
+INC-0038,2024-03-01,Internal Employee,Payments,Customer Support,On-site,18518,8,External tip/extortion demand,3,4,Grudge,Customer
+INC-0039,2025-05-27,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,31293,17,Monitoring alert,3,0,Business disruption,Regulatory
+INC-0040,2025-05-23,Compromised Employee,Commercial Banking,Operations,On-site,621,13,Audit/review,5,0,Ransom,Response
+INC-0041,2023-11-27,Internal Employee,Commercial Banking,Operations,On-site,1334,31,Audit/review,4,0,Grudge,Response
+INC-0042,2023-04-23,Employee Device/ID Theft,Retail Banking,Customer Support,Hybrid,1376,13,Whistleblower report,3,0,Ransom,Customer
+INC-0043,2021-12-28,Compromised Employee,Retail Banking,Branch/Teller,Remote,15707,2,Audit/review,3,1,Business disruption,Cost of Capital
+INC-0044,2025-10-26,Internal Employee,Payments,Operations,On-site,437,19,Customer complaint,4,2,Business disruption,Customer
+INC-0045,2024-04-19,Employee Device/ID Theft,Retail Banking,Customer Support,Remote,46722,9,Whistleblower report,2,1,Ransom,Forensic
+INC-0046,2024-02-17,Employee Device/ID Theft,Capital Markets,Customer Support,On-site,1798,58,Whistleblower report,6,0,Business disruption,Customer
+INC-0047,2024-08-01,Internal Employee,Payments,IT/Admin,Hybrid,2714,12,Customer complaint,0,2,Grudge,Cost of Capital
+INC-0048,2021-04-21,Internal Employee,Wealth Management,IT/Admin,Remote,25559,29,Whistleblower report,6,1,Business disruption,Regulatory
+INC-0049,2021-09-30,Compromised Employee,Commercial Banking,Branch/Teller,Hybrid,61958,16,Audit/review,4,2,Business disruption,Customer
+INC-0050,2021-05-08,Third-Party,Payments,Vendor/Contractor Staff,Remote,98092,50,Customer complaint,2,0,Business disruption,Customer
+INC-0051,2024-07-25,Third-Party,Payments,Vendor/Contractor Staff,Remote,4367,1,Whistleblower report,2,3,Sensitive personal information,Regulatory
+INC-0052,2022-02-15,Third-Party,Payments,Vendor/Contractor Staff,On-site,102755,26,External tip/extortion demand,0,1,Sensitive personal information,Forensic
+INC-0053,2025-05-31,Compromised Employee,Retail Banking,Operations,Hybrid,2588,4,Monitoring alert,1,1,Sensitive personal information,Customer
+INC-0054,2021-03-12,Compromised Employee,Retail Banking,Operations,On-site,480,28,Customer complaint,1,0,Grudge,Response
+INC-0055,2021-06-05,Compromised Employee,Wealth Management,Customer Support,Hybrid,14718,12,Monitoring alert,2,0,Ransom,Customer
+INC-0056,2021-10-23,Compromised Employee,Wealth Management,Operations,Remote,480,57,Audit/review,4,1,Business disruption,Response
+INC-0057,2022-12-17,Internal Employee,Wealth Management,Branch/Teller,On-site,3198,17,Customer complaint,7,1,Grudge,Forensic
+INC-0058,2022-10-05,Compromised Employee,Commercial Banking,Operations,On-site,11221,4,Whistleblower report,2,0,Hacktivism,Regulatory
+INC-0059,2022-09-14,Third-Party,Wealth Management,Customer Support,Hybrid,16878,91,External tip/extortion demand,1,1,Business disruption,Customer
+INC-0060,2025-10-16,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,27316,108,Audit/review,2,1,Sensitive personal information,Customer
+INC-0061,2024-06-11,Compromised Employee,Wealth Management,Operations,Remote,4238,10,External tip/extortion demand,3,0,Ransom,Customer
+INC-0062,2022-08-26,Internal Employee,Commercial Banking,Customer Support,On-site,8758,8,Monitoring alert,1,0,Sensitive personal information,Customer
+INC-0063,2022-09-04,Compromised Employee,Commercial Banking,Customer Support,Remote,232973,6,External tip/extortion demand,3,0,Ransom,Regulatory
+INC-0064,2023-06-20,Compromised Employee,Retail Banking,Branch/Teller,Remote,1093,9,External tip/extortion demand,3,0,Ransom,Response
+INC-0065,2022-02-15,Compromised Employee,Commercial Banking,Operations,Remote,768,1,Monitoring alert,3,3,Sensitive personal information,Customer
+INC-0066,2022-07-08,Compromised Employee,Retail Banking,Customer Support,On-site,16019,11,External tip/extortion demand,3,0,Ransom,Customer
+INC-0067,2022-09-08,Compromised Employee,Retail Banking,Customer Support,On-site,17921,16,Monitoring alert,1,1,Sensitive personal information,Customer
+INC-0068,2023-09-30,Internal Employee,Payments,Operations,Hybrid,334,44,Customer complaint,12,0,Hacktivism,Forensic
+INC-0069,2025-05-13,Third-Party,Capital Markets,Vendor/Contractor Staff,Remote,1504,26,Customer complaint,1,1,Sensitive personal information,Response
+INC-0070,2024-10-24,Internal Employee,Commercial Banking,Operations,Remote,12515,0,Monitoring alert,1,1,Ransom,Cost of Capital
+INC-0071,2024-10-08,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,4960,16,Whistleblower report,1,1,Business disruption,Forensic
+INC-0072,2024-10-07,Internal Employee,Retail Banking,Customer Support,On-site,708,14,Audit/review,1,2,Sensitive personal information,Response
+INC-0073,2025-11-24,Employee Device/ID Theft,Payments,Branch/Teller,On-site,33100,8,Customer complaint,3,1,Ransom,Cost of Capital
+INC-0074,2024-01-03,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,11627,16,Monitoring alert,4,0,Business disruption,Media
+INC-0075,2024-07-27,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,7750,40,Audit/review,2,0,Business disruption,Customer
+INC-0076,2024-05-26,Internal Employee,Payments,Customer Support,Remote,29914,8,Audit/review,0,4,Grudge,Regulatory
+INC-0077,2025-07-24,Internal Employee,Retail Banking,IT/Admin,On-site,2070,16,Monitoring alert,6,1,Grudge,Regulatory
+INC-0078,2022-11-22,Compromised Employee,Capital Markets,Branch/Teller,Hybrid,9675,30,Customer complaint,5,0,Ransom,Customer
+INC-0079,2021-12-04,Compromised Employee,Payments,Branch/Teller,On-site,5719,5,Audit/review,9,0,Sensitive personal information,Customer
+INC-0080,2022-05-09,Compromised Employee,Payments,Customer Support,Hybrid,8676,9,Customer complaint,3,0,Sensitive personal information,Customer
+INC-0081,2022-09-01,Compromised Employee,Commercial Banking,Branch/Teller,On-site,12839,4,External tip/extortion demand,1,0,Business disruption,Customer
+INC-0082,2024-08-03,Internal Employee,Wealth Management,Customer Support,On-site,14296,40,Monitoring alert,4,0,Terrorism,Customer
+INC-0083,2024-06-25,Employee Device/ID Theft,Wealth Management,Customer Support,On-site,6624,0,External tip/extortion demand,1,0,Sensitive personal information,Customer
+INC-0084,2022-04-23,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,22302,68,Customer complaint,7,1,Sensitive personal information,Response
+INC-0085,2024-07-22,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,7712,10,External tip/extortion demand,3,2,Sensitive personal information,Response
+INC-0086,2024-10-26,Third-Party,Capital Markets,Vendor/Contractor Staff,On-site,9498,6,Monitoring alert,1,0,Grudge,Customer
+INC-0087,2023-02-07,Compromised Employee,Commercial Banking,Customer Support,On-site,20628,19,External tip/extortion demand,2,1,Ransom,Customer
+INC-0088,2023-06-28,Internal Employee,Retail Banking,IT/Admin,Remote,6928,244,Monitoring alert,6,1,Grudge,Customer
+INC-0089,2023-02-21,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,204014,35,Monitoring alert,8,0,Sensitive personal information,Customer
+INC-0090,2022-08-20,Compromised Employee,Commercial Banking,Operations,Hybrid,46682,12,Monitoring alert,6,0,Ransom,Response
+INC-0091,2023-09-12,Third-Party,Capital Markets,Vendor/Contractor Staff,Remote,6246,28,External tip/extortion demand,1,0,Ransom,Regulatory
+INC-0092,2024-05-29,Compromised Employee,Payments,Branch/Teller,Remote,30652,6,Whistleblower report,1,1,Sensitive personal information,Customer
+INC-0093,2022-09-23,Internal Employee,Wealth Management,IT/Admin,Hybrid,1435,3,Customer complaint,5,3,Grudge,Forensic
+INC-0094,2024-04-14,Internal Employee,Retail Banking,Customer Support,On-site,1960,1,Monitoring alert,1,0,Grudge,Customer
+INC-0095,2025-08-28,Internal Employee,Commercial Banking,Operations,Hybrid,2939,148,Monitoring alert,0,0,Grudge,Regulatory
+INC-0096,2025-06-01,Compromised Employee,Retail Banking,Customer Support,Remote,5094,6,Audit/review,5,0,Business disruption,Customer
+INC-0097,2021-03-06,Internal Employee,Commercial Banking,IT/Admin,Hybrid,1184,12,Customer complaint,8,1,Grudge,Customer
+INC-0098,2025-10-15,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,55328,159,Whistleblower report,2,0,Sensitive personal information,Media
+INC-0099,2025-01-01,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,124185,51,Customer complaint,6,0,Sensitive personal information,Customer
+INC-0100,2025-04-17,Employee Device/ID Theft,Capital Markets,Branch/Teller,On-site,11339,4,Monitoring alert,2,1,Business disruption,Customer
+INC-0101,2025-07-18,Employee Device/ID Theft,Retail Banking,Branch/Teller,Remote,3438,46,External tip/extortion demand,0,0,Sensitive personal information,Cost of Capital
+INC-0102,2025-10-18,Compromised Employee,Commercial Banking,IT/Admin,Remote,912,16,Monitoring alert,18,0,Hacktivism,Response
+INC-0103,2025-07-24,Internal Employee,Retail Banking,Operations,On-site,4348,39,Whistleblower report,1,2,Business disruption,Regulatory
+INC-0104,2022-12-21,Employee Device/ID Theft,Wealth Management,IT/Admin,On-site,13435,2,Customer complaint,2,1,Sensitive personal information,Response
+INC-0105,2021-02-09,Compromised Employee,Payments,Operations,On-site,7482,10,Audit/review,7,0,Sensitive personal information,Response
+INC-0106,2023-05-05,Compromised Employee,Payments,Operations,On-site,2249,1,Monitoring alert,8,0,Sensitive personal information,Regulatory
+INC-0107,2024-11-14,Internal Employee,Commercial Banking,Branch/Teller,On-site,1365,42,Monitoring alert,9,1,Business disruption,Customer
+INC-0108,2021-12-07,Internal Employee,Capital Markets,Branch/Teller,On-site,2780,13,External tip/extortion demand,9,2,Sensitive personal information,Response
+INC-0109,2023-09-11,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,16878,37,Monitoring alert,3,2,Sensitive personal information,Customer
+INC-0110,2025-03-06,Employee Device/ID Theft,Payments,Customer Support,Hybrid,1609,3,Customer complaint,21,0,Sensitive personal information,Response
+INC-0111,2022-01-04,Internal Employee,Wealth Management,IT/Admin,Hybrid,3439,65,Monitoring alert,1,1,Ransom,Cost of Capital
+INC-0112,2025-02-17,Third-Party,Retail Banking,Customer Support,Hybrid,11463,58,Monitoring alert,1,1,Hacktivism,Customer
+INC-0113,2023-03-02,Internal Employee,Retail Banking,Operations,On-site,1508,37,Monitoring alert,2,1,Grudge,Customer
+INC-0114,2022-04-01,Compromised Employee,Retail Banking,Branch/Teller,Remote,4208,2,Monitoring alert,5,0,Sensitive personal information,Cost of Capital
+INC-0115,2022-08-26,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,17578,64,Whistleblower report,3,0,Sensitive personal information,Customer
+INC-0116,2021-10-10,Employee Device/ID Theft,Retail Banking,Operations,On-site,4646,5,Monitoring alert,2,0,Sensitive personal information,Customer
+INC-0117,2023-08-16,Compromised Employee,Retail Banking,Branch/Teller,Remote,4198,4,Customer complaint,4,2,Terrorism,Customer
+INC-0118,2021-01-22,Compromised Employee,Payments,Customer Support,Hybrid,2840,24,External tip/extortion demand,1,0,Sensitive personal information,Forensic
+INC-0119,2024-02-05,Internal Employee,Commercial Banking,IT/Admin,On-site,26997,6,Monitoring alert,6,1,Ransom,Customer
+INC-0120,2025-02-22,Compromised Employee,Commercial Banking,IT/Admin,Hybrid,57433,40,Monitoring alert,3,0,Sensitive personal information,Customer
+INC-0121,2024-05-13,Compromised Employee,Commercial Banking,Customer Support,Hybrid,83143,2,Monitoring alert,2,1,Ransom,Customer
+INC-0122,2024-10-27,Compromised Employee,Payments,Operations,On-site,126347,9,External tip/extortion demand,10,0,Sensitive personal information,Customer
+INC-0123,2022-07-07,Third-Party,Payments,Vendor/Contractor Staff,Remote,327983,86,Whistleblower report,2,0,Sensitive personal information,Regulatory
+INC-0124,2024-11-26,Internal Employee,Wealth Management,IT/Admin,Hybrid,4725,2,Customer complaint,1,1,Grudge,Response
+INC-0125,2024-06-01,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,23633,31,Customer complaint,1,1,Ransom,Customer
+INC-0126,2021-12-19,Internal Employee,Payments,Operations,On-site,1339,14,Audit/review,7,0,Grudge,Customer
+INC-0127,2021-05-02,Internal Employee,Retail Banking,Customer Support,Hybrid,10551,11,Monitoring alert,1,5,Hacktivism,Customer
+INC-0128,2021-12-11,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,18372,36,Monitoring alert,5,0,Business disruption,Customer
+INC-0129,2025-11-07,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,38515,45,Audit/review,4,1,Hacktivism,Customer
+INC-0130,2024-12-13,Compromised Employee,Retail Banking,Customer Support,On-site,4963,15,External tip/extortion demand,5,0,Ransom,Customer
+INC-0131,2024-05-16,Third-Party,Payments,Vendor/Contractor Staff,On-site,45045,17,External tip/extortion demand,3,0,Business disruption,Customer
+INC-0132,2021-03-10,Employee Device/ID Theft,Wealth Management,Branch/Teller,Remote,968,1,Customer complaint,1,0,Sensitive personal information,Response
+INC-0133,2023-09-23,Compromised Employee,Commercial Banking,Customer Support,Remote,13385,6,Monitoring alert,4,1,Sensitive personal information,Customer
+INC-0134,2023-06-17,Internal Employee,Retail Banking,Branch/Teller,Hybrid,1474,7,Whistleblower report,2,0,Grudge,Regulatory
+INC-0135,2021-12-08,Compromised Employee,Commercial Banking,Customer Support,Remote,10906,17,External tip/extortion demand,3,0,Ransom,Forensic
+INC-0136,2022-10-04,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,11102,54,Customer complaint,0,1,Sensitive personal information,Customer
+INC-0137,2024-04-16,Employee Device/ID Theft,Commercial Banking,Customer Support,Remote,16782,1,Monitoring alert,7,0,Hacktivism,Customer
+INC-0138,2025-07-29,Internal Employee,Wealth Management,Operations,On-site,5366,43,Customer complaint,1,5,Business disruption,Regulatory
+INC-0139,2022-09-24,Compromised Employee,Commercial Banking,Customer Support,On-site,832,6,Monitoring alert,3,3,Ransom,Response
+INC-0140,2021-10-09,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,9487,19,Monitoring alert,1,1,Sensitive personal information,Customer
+INC-0141,2024-12-19,Internal Employee,Commercial Banking,Branch/Teller,On-site,6352,14,Monitoring alert,1,2,Ransom,Regulatory
+INC-0142,2025-10-31,Internal Employee,Payments,Operations,Hybrid,1657,31,Customer complaint,5,0,Grudge,Customer
+INC-0143,2021-08-15,Employee Device/ID Theft,Capital Markets,Operations,Remote,5409,5,Customer complaint,6,1,Business disruption,Media
+INC-0144,2025-12-08,Compromised Employee,Commercial Banking,Customer Support,On-site,9021,7,External tip/extortion demand,13,1,Ransom,Customer
+INC-0145,2022-05-27,Internal Employee,Payments,IT/Admin,On-site,3983,7,Customer complaint,2,3,Grudge,Media
+INC-0146,2022-06-18,Internal Employee,Retail Banking,Operations,Hybrid,8721,58,Audit/review,8,0,Hacktivism,Regulatory
+INC-0147,2022-03-12,Internal Employee,Retail Banking,Operations,On-site,2239,85,Audit/review,4,1,Sensitive personal information,Regulatory
+INC-0148,2023-03-11,Compromised Employee,Retail Banking,Branch/Teller,On-site,5499,1,Monitoring alert,1,1,Business disruption,Customer
+INC-0149,2021-07-27,Internal Employee,Retail Banking,Operations,On-site,4874,14,Monitoring alert,1,2,Hacktivism,Customer
+INC-0150,2025-01-28,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,47301,9,External tip/extortion demand,4,0,Ransom,Customer
+INC-0151,2021-06-15,Employee Device/ID Theft,Retail Banking,IT/Admin,On-site,57296,1,Monitoring alert,3,1,Sensitive personal information,Customer
+INC-0152,2021-12-03,Employee Device/ID Theft,Retail Banking,Branch/Teller,On-site,692,25,Audit/review,5,0,Sensitive personal information,Forensic
+INC-0153,2024-08-11,Third-Party,Payments,Vendor/Contractor Staff,Remote,6928,111,Whistleblower report,2,0,Sensitive personal information,Customer
+INC-0154,2025-02-05,Compromised Employee,Retail Banking,Operations,Hybrid,3678,7,External tip/extortion demand,0,0,Sensitive personal information,Customer
+INC-0155,2025-01-05,Third-Party,Payments,Vendor/Contractor Staff,Remote,11945,49,Customer complaint,2,0,Business disruption,Customer
+INC-0156,2021-04-17,Compromised Employee,Capital Markets,IT/Admin,On-site,4671,3,Audit/review,3,0,Sensitive personal information,Regulatory
+INC-0157,2021-04-02,Internal Employee,Wealth Management,Branch/Teller,Hybrid,5615,15,External tip/extortion demand,2,3,Sensitive personal information,Customer
+INC-0158,2021-10-15,Compromised Employee,Wealth Management,Branch/Teller,On-site,17086,13,Monitoring alert,3,1,Sensitive personal information,Regulatory
+INC-0159,2023-07-14,Compromised Employee,Retail Banking,Customer Support,On-site,3343,41,Audit/review,2,0,Hacktivism,Response
+INC-0160,2022-05-22,Compromised Employee,Retail Banking,Operations,On-site,24349,22,External tip/extortion demand,2,0,Ransom,Customer
+INC-0161,2023-06-02,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,21049,248,Customer complaint,2,0,Terrorism,Media
+INC-0162,2023-07-31,Employee Device/ID Theft,Retail Banking,Customer Support,On-site,4440,7,Audit/review,3,0,Hacktivism,Response
+INC-0163,2024-07-07,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,26388,45,Audit/review,1,0,Sensitive personal information,Customer
+INC-0164,2021-03-07,Third-Party,Wealth Management,Vendor/Contractor Staff,On-site,56563,14,Monitoring alert,4,0,Sensitive personal information,Regulatory
+INC-0165,2023-11-22,Compromised Employee,Retail Banking,Operations,On-site,58940,14,Monitoring alert,4,0,Terrorism,Forensic
+INC-0166,2021-05-20,Internal Employee,Retail Banking,IT/Admin,On-site,2190,9,Monitoring alert,1,1,Grudge,Media
+INC-0167,2024-03-29,Employee Device/ID Theft,Commercial Banking,Operations,On-site,829,22,Monitoring alert,20,1,Ransom,Response
+INC-0168,2022-04-03,Employee Device/ID Theft,Payments,Customer Support,On-site,12375,7,External tip/extortion demand,7,1,Ransom,Customer
+INC-0169,2024-09-13,Internal Employee,Retail Banking,Customer Support,Hybrid,2770,12,External tip/extortion demand,3,0,Business disruption,Regulatory
+INC-0170,2024-07-08,Employee Device/ID Theft,Wealth Management,Customer Support,On-site,38489,2,Customer complaint,3,0,Business disruption,Regulatory
+INC-0171,2023-05-10,Internal Employee,Capital Markets,IT/Admin,On-site,1310,38,Monitoring alert,1,4,Business disruption,Response
+INC-0172,2022-07-13,Compromised Employee,Payments,Operations,Remote,8049,12,External tip/extortion demand,4,1,Business disruption,Customer
+INC-0173,2021-06-30,Internal Employee,Commercial Banking,IT/Admin,On-site,3350,16,Audit/review,2,1,Grudge,Response
+INC-0174,2024-06-13,Employee Device/ID Theft,Commercial Banking,IT/Admin,Remote,10134,4,Monitoring alert,3,2,Sensitive personal information,Customer
+INC-0175,2023-01-22,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,75561,90,Audit/review,3,0,Sensitive personal information,Regulatory
+INC-0176,2024-08-13,Third-Party,Commercial Banking,IT/Admin,On-site,24553,14,Monitoring alert,13,0,Sensitive personal information,Customer
+INC-0177,2024-09-21,Internal Employee,Retail Banking,IT/Admin,Hybrid,7226,6,Monitoring alert,3,1,Grudge,Response
+INC-0178,2025-11-17,Employee Device/ID Theft,Commercial Banking,Customer Support,Remote,315542,6,Customer complaint,2,0,Ransom,Regulatory
+INC-0179,2023-07-17,Employee Device/ID Theft,Payments,IT/Admin,On-site,1016,8,Monitoring alert,1,1,Ransom,Customer
+INC-0180,2023-01-09,Compromised Employee,Commercial Banking,IT/Admin,Hybrid,7726,15,Monitoring alert,4,0,Ransom,Regulatory
+INC-0181,2021-02-07,Employee Device/ID Theft,Retail Banking,Operations,Remote,26493,3,External tip/extortion demand,3,0,Sensitive personal information,Customer
+INC-0182,2025-04-07,Employee Device/ID Theft,Retail Banking,Branch/Teller,Hybrid,2186,7,External tip/extortion demand,4,1,Sensitive personal information,Customer
+INC-0183,2024-07-20,Compromised Employee,Commercial Banking,IT/Admin,Hybrid,2889,3,Audit/review,1,2,Ransom,Customer
+INC-0184,2022-03-20,Internal Employee,Commercial Banking,IT/Admin,Remote,1691,8,Monitoring alert,3,2,Grudge,Customer
+INC-0185,2025-07-11,Compromised Employee,Capital Markets,IT/Admin,On-site,3537,8,External tip/extortion demand,4,1,Sensitive personal information,Customer
+INC-0186,2023-12-23,Compromised Employee,Retail Banking,Branch/Teller,On-site,461,14,Customer complaint,3,0,Ransom,Forensic
+INC-0187,2023-06-22,Internal Employee,Commercial Banking,Customer Support,On-site,5285,37,External tip/extortion demand,0,4,Ransom,Regulatory
+INC-0188,2023-06-13,Third-Party,Wealth Management,IT/Admin,On-site,3449,11,Customer complaint,1,0,Hacktivism,Customer
+INC-0189,2025-05-03,Compromised Employee,Capital Markets,Customer Support,On-site,67037,26,Customer complaint,0,0,Sensitive personal information,Customer
+INC-0190,2025-04-02,Internal Employee,Payments,Customer Support,On-site,990,5,Monitoring alert,3,0,Grudge,Customer
+INC-0191,2024-01-21,Employee Device/ID Theft,Commercial Banking,Customer Support,Hybrid,2027,4,Monitoring alert,1,0,Hacktivism,Customer
+INC-0192,2024-04-08,Third-Party,Wealth Management,Vendor/Contractor Staff,On-site,24841,285,Monitoring alert,5,1,Sensitive personal information,Customer
+INC-0193,2024-07-08,Third-Party,Payments,Customer Support,On-site,40591,529,Monitoring alert,1,1,Sensitive personal information,Response
+INC-0194,2022-10-27,Employee Device/ID Theft,Commercial Banking,Branch/Teller,On-site,9249,6,Whistleblower report,1,0,Sensitive personal information,Response
+INC-0195,2025-01-18,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,11262,3,External tip/extortion demand,3,0,Hacktivism,Response
+INC-0196,2022-08-13,Third-Party,Wealth Management,Vendor/Contractor Staff,On-site,62883,85,Audit/review,2,0,Sensitive personal information,Customer
+INC-0197,2024-12-15,Compromised Employee,Payments,Branch/Teller,On-site,68890,1,Customer complaint,2,0,Sensitive personal information,Media
+INC-0198,2025-05-07,Employee Device/ID Theft,Retail Banking,IT/Admin,On-site,7686,35,Customer complaint,10,0,Ransom,Customer
+INC-0199,2023-02-05,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,34152,31,Whistleblower report,11,2,Business disruption,Customer
+INC-0200,2023-01-01,Internal Employee,Commercial Banking,Customer Support,Hybrid,2417,50,Customer complaint,10,0,Grudge,Forensic
+INC-0201,2022-09-26,Compromised Employee,Wealth Management,Customer Support,On-site,10044,3,Monitoring alert,8,0,Hacktivism,Cost of Capital
+INC-0202,2021-08-28,Employee Device/ID Theft,Capital Markets,Customer Support,Hybrid,12857,2,External tip/extortion demand,1,0,Sensitive personal information,Customer
+INC-0203,2024-10-07,Compromised Employee,Wealth Management,Customer Support,On-site,3194,12,External tip/extortion demand,2,2,Business disruption,Customer
+INC-0204,2022-05-19,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,7778,2,Customer complaint,2,1,Business disruption,Customer
+INC-0205,2023-05-14,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,75514,48,External tip/extortion demand,3,0,Sensitive personal information,Regulatory
+INC-0206,2024-04-28,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,33363,18,External tip/extortion demand,7,0,Ransom,Regulatory
+INC-0207,2022-06-03,Third-Party,Payments,IT/Admin,Hybrid,13514,29,Monitoring alert,2,0,Grudge,Media
+INC-0208,2022-05-11,Compromised Employee,Wealth Management,Branch/Teller,On-site,22626,13,External tip/extortion demand,4,2,Ransom,Customer
+INC-0209,2025-12-12,Third-Party,Payments,Vendor/Contractor Staff,On-site,831,24,Monitoring alert,5,1,Sensitive personal information,Customer
+INC-0210,2023-11-11,Compromised Employee,Wealth Management,Customer Support,On-site,7127,35,External tip/extortion demand,1,1,Ransom,Forensic
+INC-0211,2024-04-14,Compromised Employee,Retail Banking,Customer Support,Hybrid,7627,12,External tip/extortion demand,0,0,Sensitive personal information,Media
+INC-0212,2024-06-15,Compromised Employee,Wealth Management,Branch/Teller,Hybrid,1152,4,Customer complaint,0,0,Terrorism,Regulatory
+INC-0213,2022-04-04,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,2414,27,Monitoring alert,7,1,Grudge,Media
+INC-0214,2021-07-08,Employee Device/ID Theft,Retail Banking,Customer Support,Hybrid,2933,14,External tip/extortion demand,4,0,Sensitive personal information,Customer
+INC-0215,2021-07-20,Compromised Employee,Payments,Branch/Teller,On-site,2868,9,External tip/extortion demand,4,0,Sensitive personal information,Response
+INC-0216,2021-01-14,Compromised Employee,Commercial Banking,Branch/Teller,Hybrid,9045,1,Audit/review,2,0,Sensitive personal information,Customer
+INC-0217,2022-03-17,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,8969,46,Monitoring alert,0,0,Business disruption,Customer
+INC-0218,2023-07-08,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,76973,339,Monitoring alert,3,0,Sensitive personal information,Customer
+INC-0219,2022-09-29,Employee Device/ID Theft,Wealth Management,Operations,Hybrid,2926,2,Audit/review,3,1,Sensitive personal information,Media
+INC-0220,2021-11-10,Internal Employee,Retail Banking,IT/Admin,On-site,1987,47,External tip/extortion demand,3,2,Business disruption,Forensic
+INC-0221,2021-07-05,Internal Employee,Retail Banking,Branch/Teller,On-site,1625,5,External tip/extortion demand,6,2,Ransom,Response
+INC-0222,2021-04-25,Internal Employee,Retail Banking,Operations,On-site,3019,8,External tip/extortion demand,4,2,Terrorism,Regulatory
+INC-0223,2022-01-16,Compromised Employee,Retail Banking,Branch/Teller,On-site,2273,24,Monitoring alert,1,0,Grudge,Customer
+INC-0224,2023-09-18,Employee Device/ID Theft,Retail Banking,Branch/Teller,On-site,5635,3,Monitoring alert,5,0,Sensitive personal information,Media
+INC-0225,2024-07-09,Internal Employee,Commercial Banking,Branch/Teller,On-site,1046,117,Monitoring alert,6,1,Hacktivism,Customer
+INC-0226,2023-03-10,Employee Device/ID Theft,Wealth Management,IT/Admin,Hybrid,3372,4,Monitoring alert,1,0,Grudge,Regulatory
+INC-0227,2022-08-20,Third-Party,Capital Markets,Vendor/Contractor Staff,Remote,11179,114,Whistleblower report,0,0,Business disruption,Response
+INC-0228,2022-07-07,Compromised Employee,Wealth Management,Operations,On-site,2699,4,External tip/extortion demand,0,0,Ransom,Regulatory
+INC-0229,2024-12-20,Compromised Employee,Payments,Operations,On-site,12702,3,Customer complaint,3,0,Sensitive personal information,Customer
+INC-0230,2024-03-03,Third-Party,Payments,Vendor/Contractor Staff,Remote,6506,9,External tip/extortion demand,0,0,Ransom,Media
+INC-0231,2024-12-23,Third-Party,Payments,Vendor/Contractor Staff,Remote,101528,53,Audit/review,6,0,Ransom,Customer
+INC-0232,2025-07-01,Internal Employee,Retail Banking,Operations,Hybrid,10639,23,External tip/extortion demand,40,0,Sensitive personal information,Customer
+INC-0233,2022-12-18,Employee Device/ID Theft,Retail Banking,IT/Admin,On-site,9462,1,Customer complaint,2,0,Ransom,Customer
+INC-0234,2024-08-24,Compromised Employee,Capital Markets,Customer Support,Remote,12612,3,External tip/extortion demand,1,1,Business disruption,Customer
+INC-0235,2023-01-06,Employee Device/ID Theft,Commercial Banking,Customer Support,On-site,5876,3,Monitoring alert,8,0,Sensitive personal information,Response
+INC-0236,2022-10-05,Employee Device/ID Theft,Retail Banking,Operations,Hybrid,1881,8,Monitoring alert,4,0,Sensitive personal information,Customer
+INC-0237,2024-11-14,Internal Employee,Retail Banking,Branch/Teller,On-site,722,96,Monitoring alert,4,2,Sensitive personal information,Customer
+INC-0238,2025-05-26,Compromised Employee,Retail Banking,Customer Support,Hybrid,70601,10,External tip/extortion demand,12,0,Ransom,Media
+INC-0239,2024-08-24,Third-Party,Payments,IT/Admin,Hybrid,4452,26,Monitoring alert,1,0,Hacktivism,Forensic
+INC-0240,2022-09-19,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,26556,124,Monitoring alert,0,0,Business disruption,Customer
+INC-0241,2025-01-23,Employee Device/ID Theft,Commercial Banking,Operations,Remote,11799,2,Monitoring alert,1,0,Sensitive personal information,Regulatory
+INC-0242,2021-02-04,Compromised Employee,Commercial Banking,Operations,On-site,3421,1,Customer complaint,2,0,Ransom,Customer
+INC-0243,2023-04-06,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,35841,85,Customer complaint,9,0,Sensitive personal information,Customer
+INC-0244,2024-07-21,Compromised Employee,Retail Banking,Customer Support,On-site,20790,81,External tip/extortion demand,1,0,Ransom,Response
+INC-0245,2022-11-03,Compromised Employee,Retail Banking,IT/Admin,Remote,8744,3,Customer complaint,1,1,Ransom,Cost of Capital
+INC-0246,2022-06-11,Employee Device/ID Theft,Retail Banking,Customer Support,Hybrid,6486,3,Monitoring alert,2,1,Sensitive personal information,Customer
+INC-0247,2024-05-02,Compromised Employee,Retail Banking,Customer Support,Remote,11994,3,Monitoring alert,5,0,Business disruption,Cost of Capital
+INC-0248,2025-04-08,Internal Employee,Retail Banking,Operations,On-site,3795,51,Monitoring alert,2,4,Ransom,Response
+INC-0249,2022-10-23,Internal Employee,Retail Banking,Customer Support,On-site,4405,16,Audit/review,1,3,Business disruption,Customer
+INC-0250,2024-05-26,Internal Employee,Payments,Operations,Remote,3115,33,Monitoring alert,22,1,Grudge,Customer
+INC-0251,2021-08-01,Compromised Employee,Retail Banking,Branch/Teller,On-site,16138,6,External tip/extortion demand,0,1,Ransom,Regulatory
+INC-0252,2024-06-14,Employee Device/ID Theft,Wealth Management,Operations,Hybrid,6702,3,External tip/extortion demand,3,1,Sensitive personal information,Regulatory
+INC-0253,2022-09-03,Internal Employee,Commercial Banking,Customer Support,On-site,1902,7,External tip/extortion demand,1,2,Grudge,Forensic
+INC-0254,2024-04-07,Third-Party,Payments,Vendor/Contractor Staff,Remote,6060,44,External tip/extortion demand,6,0,Ransom,Media
+INC-0255,2021-05-21,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,908295,41,External tip/extortion demand,3,0,Sensitive personal information,Regulatory
+INC-0256,2021-10-30,Compromised Employee,Payments,Customer Support,On-site,17529,17,Whistleblower report,6,1,Sensitive personal information,Customer
+INC-0257,2023-10-16,Employee Device/ID Theft,Payments,Operations,Hybrid,3295,5,External tip/extortion demand,2,1,Ransom,Response
+INC-0258,2023-12-22,Third-Party,Wealth Management,Customer Support,Remote,167106,63,Monitoring alert,1,1,Sensitive personal information,Regulatory
+INC-0259,2022-07-27,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,6308,29,Customer complaint,1,0,Ransom,Customer
+INC-0260,2022-07-18,Compromised Employee,Commercial Banking,IT/Admin,Remote,166246,6,Audit/review,1,0,Ransom,Regulatory
+INC-0261,2021-05-13,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,39621,33,Customer complaint,6,0,Sensitive personal information,Cost of Capital
+INC-0262,2021-08-05,Employee Device/ID Theft,Retail Banking,IT/Admin,Remote,24511,8,Audit/review,15,2,Sensitive personal information,Cost of Capital
+INC-0263,2024-10-02,Internal Employee,Capital Markets,Operations,Hybrid,2263,49,Monitoring alert,11,1,Grudge,Customer
+INC-0264,2024-11-23,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,21303,13,Monitoring alert,5,1,Ransom,Response
+INC-0265,2021-08-02,Employee Device/ID Theft,Retail Banking,Customer Support,On-site,4417,13,External tip/extortion demand,4,1,Ransom,Customer
+INC-0266,2023-11-12,Third-Party,Capital Markets,Vendor/Contractor Staff,On-site,55022,13,External tip/extortion demand,6,0,Ransom,Cost of Capital
+INC-0267,2022-03-29,Internal Employee,Retail Banking,Branch/Teller,On-site,2709,22,Customer complaint,10,1,Sensitive personal information,Customer
+INC-0268,2022-08-04,Third-Party,Payments,Vendor/Contractor Staff,Remote,11223,42,External tip/extortion demand,2,2,Ransom,Response
+INC-0269,2024-03-12,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,15951,55,Customer complaint,0,2,Sensitive personal information,Forensic
+INC-0270,2024-01-05,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,55775,3,Customer complaint,3,0,Hacktivism,Cost of Capital
+INC-0271,2021-09-24,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,54189,29,External tip/extortion demand,1,0,Ransom,Regulatory
+INC-0272,2025-03-25,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,30576,71,Monitoring alert,5,0,Sensitive personal information,Customer
+INC-0273,2022-10-09,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,5518,7,External tip/extortion demand,5,0,Business disruption,Response
+INC-0274,2024-01-30,Compromised Employee,Retail Banking,Customer Support,On-site,11569,12,Monitoring alert,2,0,Hacktivism,Customer
+INC-0275,2022-11-10,Compromised Employee,Wealth Management,Branch/Teller,Remote,5673,2,External tip/extortion demand,5,2,Sensitive personal information,Regulatory
+INC-0276,2025-06-14,Internal Employee,Payments,Operations,Remote,1617,9,Monitoring alert,0,0,Sensitive personal information,Response
+INC-0277,2022-05-05,Internal Employee,Commercial Banking,IT/Admin,Hybrid,1691,118,External tip/extortion demand,4,1,Sensitive personal information,Customer
+INC-0278,2023-07-19,Compromised Employee,Commercial Banking,Branch/Teller,On-site,26871,2,Customer complaint,3,0,Ransom,Customer
+INC-0279,2025-02-07,Employee Device/ID Theft,Wealth Management,IT/Admin,Remote,4635,0,Customer complaint,9,1,Sensitive personal information,Response
+INC-0280,2023-04-25,Employee Device/ID Theft,Retail Banking,Operations,On-site,3497,4,External tip/extortion demand,6,0,Ransom,Customer
+INC-0281,2021-08-07,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,128656,139,External tip/extortion demand,1,0,Sensitive personal information,Media
+INC-0282,2025-05-22,Third-Party,Payments,Vendor/Contractor Staff,Remote,9185,37,Customer complaint,1,0,Sensitive personal information,Response
+INC-0283,2021-06-30,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,42210,9,External tip/extortion demand,3,0,Business disruption,Customer
+INC-0284,2024-08-13,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,15031,10,Monitoring alert,6,1,Sensitive personal information,Regulatory
+INC-0285,2021-12-02,Compromised Employee,Commercial Banking,Operations,Remote,1542,7,External tip/extortion demand,3,0,Business disruption,Response
+INC-0286,2022-11-14,Internal Employee,Retail Banking,Operations,On-site,2238,7,Monitoring alert,4,2,Hacktivism,Regulatory
+INC-0287,2025-08-18,Third-Party,Payments,Vendor/Contractor Staff,On-site,183361,26,External tip/extortion demand,3,1,Ransom,Response
+INC-0288,2024-09-17,Internal Employee,Commercial Banking,Operations,On-site,1025,44,Monitoring alert,1,0,Grudge,Regulatory
+INC-0289,2025-09-26,Compromised Employee,Wealth Management,Customer Support,On-site,29368,3,External tip/extortion demand,3,0,Business disruption,Regulatory
+INC-0290,2024-01-04,Third-Party,Retail Banking,Customer Support,Hybrid,43155,1,External tip/extortion demand,3,0,Ransom,Customer
+INC-0291,2021-01-26,Employee Device/ID Theft,Retail Banking,Customer Support,Remote,10379,6,Monitoring alert,8,1,Business disruption,Regulatory
+INC-0292,2023-02-20,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,14356,80,Audit/review,3,0,Ransom,Customer
+INC-0293,2024-08-05,Employee Device/ID Theft,Payments,Customer Support,On-site,3318,33,Customer complaint,5,0,Business disruption,Regulatory
+INC-0294,2024-07-30,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,49675,41,External tip/extortion demand,6,1,Business disruption,Customer
+INC-0295,2023-03-09,Employee Device/ID Theft,Commercial Banking,IT/Admin,Hybrid,10376,6,Customer complaint,7,0,Sensitive personal information,Cost of Capital
+INC-0296,2021-11-01,Employee Device/ID Theft,Retail Banking,Operations,Hybrid,2972,4,External tip/extortion demand,2,0,Ransom,Response
+INC-0297,2022-11-01,Employee Device/ID Theft,Commercial Banking,IT/Admin,On-site,22720,9,Whistleblower report,7,1,Business disruption,Media
+INC-0298,2024-01-20,Employee Device/ID Theft,Payments,Operations,On-site,3223,12,Audit/review,3,0,Grudge,Customer
+INC-0299,2024-07-26,Compromised Employee,Payments,Customer Support,On-site,1594,8,Customer complaint,2,0,Sensitive personal information,Media
+INC-0300,2024-10-15,Compromised Employee,Payments,IT/Admin,On-site,6973,17,Monitoring alert,2,0,Sensitive personal information,Regulatory
+INC-0301,2024-03-25,Compromised Employee,Wealth Management,Branch/Teller,Hybrid,8190,4,External tip/extortion demand,3,0,Ransom,Response
+INC-0302,2025-04-21,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,8440,26,Monitoring alert,2,1,Sensitive personal information,Customer
+INC-0303,2023-05-24,Compromised Employee,Commercial Banking,Customer Support,Hybrid,5798,1,Monitoring alert,5,0,Sensitive personal information,Customer
+INC-0304,2024-03-29,Compromised Employee,Wealth Management,Customer Support,Hybrid,2362,9,Monitoring alert,2,0,Hacktivism,Regulatory
+INC-0305,2023-03-08,Employee Device/ID Theft,Wealth Management,Customer Support,Hybrid,8681,0,External tip/extortion demand,7,1,Ransom,Cost of Capital
+INC-0306,2024-09-25,Internal Employee,Wealth Management,Customer Support,Hybrid,4457,14,Audit/review,5,4,Business disruption,Regulatory
+INC-0307,2022-04-30,Internal Employee,Commercial Banking,Customer Support,On-site,25046,4,Customer complaint,4,2,Ransom,Response
+INC-0308,2022-06-10,Compromised Employee,Capital Markets,Customer Support,Remote,12259,4,External tip/extortion demand,3,0,Sensitive personal information,Customer
+INC-0309,2022-12-31,Internal Employee,Capital Markets,Customer Support,Hybrid,3185,6,Monitoring alert,3,2,Sensitive personal information,Response
+INC-0310,2024-09-18,Third-Party,Retail Banking,Customer Support,On-site,20348,51,Whistleblower report,1,0,Business disruption,Response
+INC-0311,2021-02-04,Internal Employee,Retail Banking,IT/Admin,On-site,2937,4,Monitoring alert,2,3,Hacktivism,Customer
+INC-0312,2021-12-27,Internal Employee,Retail Banking,Customer Support,On-site,700,46,Customer complaint,1,2,Hacktivism,Response
+INC-0313,2024-08-26,Third-Party,Wealth Management,Vendor/Contractor Staff,On-site,61891,31,Monitoring alert,1,0,Business disruption,Media
+INC-0314,2024-10-13,Internal Employee,Retail Banking,Customer Support,On-site,424,7,External tip/extortion demand,2,2,Grudge,Customer
+INC-0315,2025-01-02,Internal Employee,Payments,Operations,On-site,16909,12,Audit/review,1,2,Grudge,Response
+INC-0316,2023-04-18,Internal Employee,Wealth Management,Customer Support,Hybrid,1263,16,External tip/extortion demand,0,5,Grudge,Response
+INC-0317,2021-12-10,Internal Employee,Retail Banking,Branch/Teller,On-site,1754,5,External tip/extortion demand,1,0,Business disruption,Regulatory
+INC-0318,2024-03-31,Compromised Employee,Payments,Operations,Remote,3375,7,External tip/extortion demand,1,0,Business disruption,Forensic
+INC-0319,2025-05-05,Internal Employee,Wealth Management,Operations,Hybrid,1459,46,Whistleblower report,3,1,Business disruption,Customer
+INC-0320,2021-05-05,Employee Device/ID Theft,Retail Banking,Branch/Teller,Hybrid,3001,5,External tip/extortion demand,4,0,Ransom,Customer
+INC-0321,2022-07-31,Employee Device/ID Theft,Capital Markets,IT/Admin,Hybrid,3689,28,Customer complaint,4,0,Business disruption,Response
+INC-0322,2023-03-30,Internal Employee,Retail Banking,Operations,Hybrid,8501,18,Monitoring alert,1,3,Business disruption,Media
+INC-0323,2022-12-30,Internal Employee,Commercial Banking,Branch/Teller,Hybrid,4956,29,Monitoring alert,4,2,Grudge,Regulatory
+INC-0324,2024-03-19,Compromised Employee,Retail Banking,Branch/Teller,On-site,4193,10,Customer complaint,3,2,Hacktivism,Customer
+INC-0325,2022-03-13,Employee Device/ID Theft,Retail Banking,Customer Support,Hybrid,2933,9,Audit/review,7,0,Business disruption,Regulatory
+INC-0326,2021-04-10,Compromised Employee,Payments,Customer Support,On-site,7259,6,Whistleblower report,2,0,Hacktivism,Customer
+INC-0327,2023-08-20,Employee Device/ID Theft,Payments,Operations,Hybrid,2650,1,Customer complaint,6,0,Ransom,Response
+INC-0328,2021-08-06,Compromised Employee,Capital Markets,Branch/Teller,Hybrid,9900,6,Audit/review,1,0,Ransom,Customer
+INC-0329,2023-06-13,Compromised Employee,Capital Markets,Operations,On-site,28630,2,Audit/review,1,0,Ransom,Customer
+INC-0330,2021-12-07,Internal Employee,Wealth Management,Operations,Hybrid,1698,6,Monitoring alert,2,1,Business disruption,Customer
+INC-0331,2024-05-29,Compromised Employee,Retail Banking,Branch/Teller,Hybrid,14090,18,Whistleblower report,5,0,Sensitive personal information,Customer
+INC-0332,2022-01-24,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,168438,13,Customer complaint,2,3,Ransom,Customer
+INC-0333,2024-07-04,Compromised Employee,Retail Banking,Operations,Hybrid,56513,10,Monitoring alert,3,1,Business disruption,Response
+INC-0334,2023-09-22,Employee Device/ID Theft,Retail Banking,IT/Admin,On-site,53352,4,Customer complaint,8,1,Business disruption,Response
+INC-0335,2024-03-05,Third-Party,Capital Markets,IT/Admin,On-site,25446,11,External tip/extortion demand,3,0,Business disruption,Regulatory
+INC-0336,2024-05-31,Compromised Employee,Capital Markets,Operations,Remote,3348,3,Customer complaint,0,0,Business disruption,Customer
+INC-0337,2023-08-09,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,20355,65,Customer complaint,6,2,Ransom,Media
+INC-0338,2024-07-08,Compromised Employee,Retail Banking,Operations,Hybrid,1755,12,Monitoring alert,2,0,Sensitive personal information,Customer
+INC-0339,2024-08-12,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,81777,13,External tip/extortion demand,2,1,Ransom,Customer
+INC-0340,2025-07-28,Employee Device/ID Theft,Commercial Banking,Customer Support,Hybrid,17611,2,Monitoring alert,3,0,Ransom,Customer
+INC-0341,2024-06-21,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,535,22,Customer complaint,3,0,Sensitive personal information,Forensic
+INC-0342,2025-03-03,Employee Device/ID Theft,Retail Banking,Branch/Teller,On-site,2405,6,Monitoring alert,1,0,Sensitive personal information,Customer
+INC-0343,2025-10-01,Employee Device/ID Theft,Retail Banking,Customer Support,On-site,8846,2,Monitoring alert,9,0,Sensitive personal information,Customer
+INC-0344,2022-12-19,Compromised Employee,Retail Banking,IT/Admin,Remote,3955,2,Customer complaint,10,1,Ransom,Cost of Capital
+INC-0345,2022-04-23,Compromised Employee,Wealth Management,Operations,On-site,3660,13,Monitoring alert,8,0,Business disruption,Customer
+INC-0346,2025-11-20,Compromised Employee,Retail Banking,Operations,Hybrid,18883,3,Monitoring alert,1,0,Ransom,Customer
+INC-0347,2024-12-14,Employee Device/ID Theft,Commercial Banking,Customer Support,Hybrid,4091,1,Customer complaint,13,0,Ransom,Cost of Capital
+INC-0348,2021-08-31,Internal Employee,Retail Banking,Customer Support,Hybrid,2390,14,Customer complaint,6,1,Hacktivism,Customer
+INC-0349,2024-05-31,Compromised Employee,Commercial Banking,Operations,On-site,218,1,External tip/extortion demand,2,0,Ransom,Response
+INC-0350,2025-03-13,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,261655,44,External tip/extortion demand,8,0,Sensitive personal information,Customer
+INC-0351,2023-05-11,Compromised Employee,Commercial Banking,Branch/Teller,Remote,10722,17,Whistleblower report,3,0,Sensitive personal information,Response
+INC-0352,2024-04-17,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,12227,241,Monitoring alert,1,4,Ransom,Regulatory
+INC-0353,2022-04-16,Compromised Employee,Retail Banking,Customer Support,On-site,5630,8,External tip/extortion demand,1,0,Business disruption,Customer
+INC-0354,2024-02-11,Compromised Employee,Retail Banking,IT/Admin,Remote,3500,12,External tip/extortion demand,0,0,Ransom,Customer
+INC-0355,2023-01-30,Internal Employee,Commercial Banking,IT/Admin,On-site,1568,15,Customer complaint,6,4,Grudge,Regulatory
+INC-0356,2025-07-07,Compromised Employee,Payments,Operations,Hybrid,4002,3,Audit/review,9,0,Business disruption,Customer
+INC-0357,2023-03-13,Compromised Employee,Commercial Banking,Operations,On-site,295,20,External tip/extortion demand,1,2,Business disruption,Response
+INC-0358,2022-03-24,Compromised Employee,Wealth Management,Customer Support,Remote,11114,7,Audit/review,3,0,Sensitive personal information,Customer
+INC-0359,2023-03-24,Internal Employee,Retail Banking,Customer Support,Remote,3048,15,Whistleblower report,6,2,Sensitive personal information,Response
+INC-0360,2023-01-24,Compromised Employee,Retail Banking,Operations,On-site,22230,10,Whistleblower report,10,0,Hacktivism,Regulatory
+INC-0361,2024-04-03,Employee Device/ID Theft,Capital Markets,Branch/Teller,Hybrid,13799,16,Customer complaint,1,0,Terrorism,Regulatory
+INC-0362,2022-04-20,Third-Party,Payments,Vendor/Contractor Staff,Remote,2679,23,Customer complaint,0,0,Business disruption,Response
+INC-0363,2024-06-05,Third-Party,Payments,Vendor/Contractor Staff,Remote,25442,29,Monitoring alert,0,2,Sensitive personal information,Customer
+INC-0364,2023-11-14,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,16067,69,External tip/extortion demand,1,0,Ransom,Response
+INC-0365,2024-02-22,Compromised Employee,Capital Markets,Customer Support,Hybrid,9535,9,Customer complaint,2,1,Sensitive personal information,Customer
+INC-0366,2025-08-15,Internal Employee,Retail Banking,Branch/Teller,Remote,3786,2,External tip/extortion demand,3,2,Grudge,Customer
+INC-0367,2025-12-05,Compromised Employee,Commercial Banking,Operations,Hybrid,24863,27,External tip/extortion demand,3,0,Ransom,Customer
+INC-0368,2025-08-16,Compromised Employee,Payments,Operations,On-site,247,3,External tip/extortion demand,7,1,Ransom,Forensic
+INC-0369,2025-04-10,Internal Employee,Capital Markets,Branch/Teller,On-site,4450,9,Whistleblower report,4,2,Grudge,Regulatory
+INC-0370,2024-09-26,Employee Device/ID Theft,Retail Banking,Branch/Teller,Hybrid,10449,8,Monitoring alert,2,0,Sensitive personal information,Customer
+INC-0371,2021-02-24,Compromised Employee,Retail Banking,Customer Support,Remote,7542,1,Customer complaint,5,1,Ransom,Response
+INC-0372,2023-09-21,Internal Employee,Retail Banking,IT/Admin,Remote,8420,9,External tip/extortion demand,1,2,Sensitive personal information,Customer
+INC-0373,2025-06-23,Internal Employee,Retail Banking,Branch/Teller,Hybrid,4803,16,External tip/extortion demand,1,1,Ransom,Forensic
+INC-0374,2025-11-27,Internal Employee,Commercial Banking,IT/Admin,On-site,1265,13,External tip/extortion demand,2,2,Grudge,Response
+INC-0375,2024-06-02,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,10230,118,Audit/review,1,0,Sensitive personal information,Response
+INC-0376,2024-05-27,Third-Party,Retail Banking,Customer Support,On-site,4257,54,External tip/extortion demand,1,1,Ransom,Response
+INC-0377,2023-12-19,Employee Device/ID Theft,Retail Banking,Operations,Remote,3504,3,Monitoring alert,3,0,Sensitive personal information,Customer
+INC-0378,2021-06-15,Internal Employee,Retail Banking,Operations,On-site,2353,23,External tip/extortion demand,4,1,Ransom,Response
+INC-0379,2021-01-07,Internal Employee,Wealth Management,Customer Support,Hybrid,911,14,Audit/review,5,0,Grudge,Customer
+INC-0380,2025-06-08,Compromised Employee,Capital Markets,IT/Admin,On-site,7330,7,Monitoring alert,1,0,Business disruption,Customer
+INC-0381,2025-07-24,Compromised Employee,Capital Markets,Branch/Teller,Hybrid,13804,16,Customer complaint,0,0,Business disruption,Regulatory
+INC-0382,2021-12-26,Employee Device/ID Theft,Payments,Operations,Hybrid,23104,4,External tip/extortion demand,7,1,Ransom,Customer
+INC-0383,2023-07-13,Compromised Employee,Capital Markets,Operations,Hybrid,3224,0,Audit/review,0,0,Sensitive personal information,Media
+INC-0384,2023-01-01,Internal Employee,Payments,IT/Admin,On-site,2451,55,Customer complaint,0,0,Grudge,Forensic
+INC-0385,2024-07-07,Internal Employee,Retail Banking,IT/Admin,On-site,2288,5,Customer complaint,4,3,Sensitive personal information,Forensic
+INC-0386,2024-03-19,Employee Device/ID Theft,Commercial Banking,Operations,On-site,3474,14,Monitoring alert,2,0,Sensitive personal information,Forensic
+INC-0387,2023-01-25,Compromised Employee,Retail Banking,Branch/Teller,On-site,11596,25,Monitoring alert,5,0,Sensitive personal information,Forensic
+INC-0388,2021-08-07,Employee Device/ID Theft,Retail Banking,IT/Admin,Hybrid,9163,3,Whistleblower report,3,1,Sensitive personal information,Response
+INC-0389,2024-05-11,Third-Party,Payments,Vendor/Contractor Staff,Remote,25582,5,Audit/review,3,0,Sensitive personal information,Response
+INC-0390,2021-03-06,Employee Device/ID Theft,Payments,Branch/Teller,Hybrid,11399,3,Monitoring alert,2,0,Sensitive personal information,Customer
+INC-0391,2024-09-20,Compromised Employee,Payments,Branch/Teller,On-site,5130,7,Customer complaint,1,0,Ransom,Customer
+INC-0392,2023-05-27,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,25237,39,Monitoring alert,1,0,Hacktivism,Customer
+INC-0393,2021-05-02,Compromised Employee,Commercial Banking,Customer Support,Hybrid,24791,44,External tip/extortion demand,1,1,Ransom,Customer
+INC-0394,2021-11-24,Compromised Employee,Wealth Management,Branch/Teller,On-site,919,10,Monitoring alert,11,0,Sensitive personal information,Media
+INC-0395,2022-01-27,Third-Party,Payments,Vendor/Contractor Staff,Remote,20545,63,Monitoring alert,3,0,Ransom,Customer
+INC-0396,2024-11-16,Internal Employee,Retail Banking,Operations,Hybrid,3212,20,Whistleblower report,6,0,Sensitive personal information,Forensic
+INC-0397,2025-10-26,Employee Device/ID Theft,Retail Banking,Branch/Teller,On-site,11058,6,External tip/extortion demand,1,0,Ransom,Forensic
+INC-0398,2022-04-08,Internal Employee,Wealth Management,IT/Admin,Remote,6431,42,Customer complaint,2,1,Business disruption,Regulatory
+INC-0399,2023-02-05,Internal Employee,Payments,Branch/Teller,On-site,2027,4,Monitoring alert,3,2,Grudge,Customer
+INC-0400,2025-07-04,Internal Employee,Retail Banking,Customer Support,On-site,566,5,External tip/extortion demand,3,3,Sensitive personal information,Customer
+INC-0401,2023-06-25,Internal Employee,Retail Banking,IT/Admin,Hybrid,4774,14,Audit/review,6,1,Grudge,Response
+INC-0402,2024-06-23,Employee Device/ID Theft,Commercial Banking,IT/Admin,On-site,800,1,Customer complaint,1,1,Hacktivism,Response
+INC-0403,2025-07-12,Compromised Employee,Retail Banking,Customer Support,On-site,29632,4,Monitoring alert,9,1,Business disruption,Customer
+INC-0404,2025-11-18,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,13563,55,External tip/extortion demand,11,1,Ransom,Customer
+INC-0405,2023-08-07,Employee Device/ID Theft,Retail Banking,Operations,Remote,36832,2,External tip/extortion demand,2,0,Hacktivism,Media
+INC-0406,2025-08-02,Employee Device/ID Theft,Capital Markets,Operations,Hybrid,11575,0,Monitoring alert,5,2,Hacktivism,Customer
+INC-0407,2021-12-21,Internal Employee,Retail Banking,Branch/Teller,Remote,17519,77,Customer complaint,4,1,Terrorism,Regulatory
+INC-0408,2024-09-14,Employee Device/ID Theft,Commercial Banking,IT/Admin,On-site,28917,0,Monitoring alert,4,0,Sensitive personal information,Forensic
+INC-0409,2021-09-26,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,16147,77,External tip/extortion demand,1,1,Terrorism,Customer
+INC-0410,2021-10-11,Employee Device/ID Theft,Retail Banking,Operations,On-site,1079,8,Monitoring alert,7,0,Business disruption,Regulatory
+INC-0411,2022-01-18,Compromised Employee,Retail Banking,Branch/Teller,Remote,2428,6,Monitoring alert,10,1,Business disruption,Cost of Capital
+INC-0412,2023-01-14,Compromised Employee,Commercial Banking,Customer Support,Remote,1076,1,Monitoring alert,6,2,Sensitive personal information,Media
+INC-0413,2022-07-15,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,25651,3,Customer complaint,1,0,Sensitive personal information,Customer
+INC-0414,2022-10-05,Employee Device/ID Theft,Retail Banking,Customer Support,Hybrid,731,24,Monitoring alert,3,0,Sensitive personal information,Response
+INC-0415,2025-10-24,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,15740,22,Monitoring alert,3,0,Business disruption,Customer
+INC-0416,2022-11-14,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,103551,11,Audit/review,1,2,Sensitive personal information,Customer
+INC-0417,2021-05-08,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,58334,142,Audit/review,4,0,Sensitive personal information,Customer
+INC-0418,2023-10-20,Compromised Employee,Retail Banking,Operations,Hybrid,3301,7,Monitoring alert,2,0,Business disruption,Regulatory
+INC-0419,2025-10-16,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,114664,57,Audit/review,1,0,Sensitive personal information,Customer
+INC-0420,2021-04-19,Employee Device/ID Theft,Payments,Customer Support,Hybrid,1865,7,External tip/extortion demand,0,0,Ransom,Response
+INC-0421,2022-12-24,Compromised Employee,Payments,Customer Support,Hybrid,2382,1,Monitoring alert,4,2,Sensitive personal information,Customer
+INC-0422,2024-07-05,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,8288,118,Monitoring alert,8,0,Sensitive personal information,Media
+INC-0423,2022-12-06,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,66996,5,External tip/extortion demand,2,0,Business disruption,Customer
+INC-0424,2024-07-05,Third-Party,Payments,Vendor/Contractor Staff,Remote,5472,10,Customer complaint,3,0,Ransom,Media
+INC-0425,2022-11-20,Compromised Employee,Capital Markets,Customer Support,On-site,9575,5,Audit/review,2,1,Sensitive personal information,Forensic
+INC-0426,2022-09-27,Employee Device/ID Theft,Retail Banking,Branch/Teller,On-site,2047,9,Whistleblower report,0,0,Sensitive personal information,Media
+INC-0427,2021-10-04,Third-Party,Commercial Banking,Vendor/Contractor Staff,On-site,39762,36,External tip/extortion demand,9,0,Hacktivism,Customer
+INC-0428,2025-06-03,Employee Device/ID Theft,Payments,Branch/Teller,On-site,9415,0,External tip/extortion demand,9,2,Ransom,Customer
+INC-0429,2022-07-04,Third-Party,Capital Markets,IT/Admin,On-site,9400,36,Customer complaint,2,1,Grudge,Customer
+INC-0430,2023-06-21,Employee Device/ID Theft,Retail Banking,Branch/Teller,On-site,67598,31,Customer complaint,5,1,Sensitive personal information,Regulatory
+INC-0431,2021-10-16,Employee Device/ID Theft,Retail Banking,IT/Admin,On-site,4153,2,External tip/extortion demand,3,1,Sensitive personal information,Regulatory
+INC-0432,2024-05-30,Compromised Employee,Commercial Banking,Operations,On-site,3529,40,Audit/review,5,1,Ransom,Customer
+INC-0433,2024-09-13,Compromised Employee,Capital Markets,Operations,Hybrid,7381,7,External tip/extortion demand,25,1,Ransom,Customer
+INC-0434,2024-08-29,Employee Device/ID Theft,Payments,Customer Support,On-site,1439,7,Monitoring alert,1,0,Ransom,Response
+INC-0435,2023-01-14,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,4212,13,Monitoring alert,1,4,Sensitive personal information,Customer
+INC-0436,2025-03-04,Third-Party,Payments,Vendor/Contractor Staff,Remote,34747,25,External tip/extortion demand,15,0,Business disruption,Customer
+INC-0437,2023-02-12,Third-Party,Capital Markets,Vendor/Contractor Staff,Remote,8109,5,Customer complaint,5,0,Ransom,Response
+INC-0438,2024-10-10,Compromised Employee,Payments,Customer Support,On-site,1968,22,Customer complaint,2,0,Business disruption,Customer
+INC-0439,2025-12-12,Compromised Employee,Payments,Operations,Hybrid,6448,9,Monitoring alert,7,1,Sensitive personal information,Response
+INC-0440,2024-03-20,Compromised Employee,Commercial Banking,Branch/Teller,Hybrid,4368,12,Monitoring alert,1,0,Business disruption,Customer
+INC-0441,2021-08-03,Employee Device/ID Theft,Wealth Management,IT/Admin,On-site,16309,15,External tip/extortion demand,0,0,Sensitive personal information,Customer
+INC-0442,2023-08-02,Third-Party,Wealth Management,Vendor/Contractor Staff,On-site,1626,9,External tip/extortion demand,4,1,Ransom,Response
+INC-0443,2021-11-27,Compromised Employee,Retail Banking,Customer Support,Remote,9034,32,Monitoring alert,2,0,Ransom,Response
+INC-0444,2022-12-06,Third-Party,Commercial Banking,Vendor/Contractor Staff,Remote,62974,78,External tip/extortion demand,7,0,Sensitive personal information,Response
+INC-0445,2024-07-16,Internal Employee,Commercial Banking,Branch/Teller,On-site,2669,55,Monitoring alert,0,1,Grudge,Customer
+INC-0446,2021-04-16,Compromised Employee,Wealth Management,Branch/Teller,Hybrid,14665,23,Customer complaint,1,0,Business disruption,Customer
+INC-0447,2021-02-12,Employee Device/ID Theft,Payments,IT/Admin,On-site,4769,5,Customer complaint,2,1,Business disruption,Customer
+INC-0448,2023-09-27,Compromised Employee,Payments,Operations,Hybrid,8231,35,External tip/extortion demand,1,0,Sensitive personal information,Response
+INC-0449,2024-09-30,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,40751,33,Monitoring alert,4,0,Sensitive personal information,Customer
+INC-0450,2025-02-03,Compromised Employee,Retail Banking,Operations,Hybrid,2984,1,External tip/extortion demand,5,0,Ransom,Regulatory
+INC-0451,2025-12-09,Third-Party,Capital Markets,Vendor/Contractor Staff,Remote,176414,120,External tip/extortion demand,1,1,Sensitive personal information,Response
+INC-0452,2024-01-14,Employee Device/ID Theft,Retail Banking,Customer Support,Remote,17250,0,Customer complaint,2,0,Sensitive personal information,Response
+INC-0453,2021-11-20,Compromised Employee,Payments,Operations,Hybrid,6911,7,Monitoring alert,3,0,Ransom,Customer
+INC-0454,2021-10-23,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,31815,4,External tip/extortion demand,3,1,Sensitive personal information,Regulatory
+INC-0455,2023-10-15,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,22252,30,Whistleblower report,34,0,Business disruption,Customer
+INC-0456,2025-07-14,Third-Party,Retail Banking,Vendor/Contractor Staff,On-site,8676,79,Customer complaint,8,0,Sensitive personal information,Customer
+INC-0457,2025-01-25,Employee Device/ID Theft,Payments,IT/Admin,On-site,9270,10,Monitoring alert,3,0,Business disruption,Regulatory
+INC-0458,2022-08-19,Internal Employee,Commercial Banking,IT/Admin,Remote,459,10,Monitoring alert,9,1,Business disruption,Response
+INC-0459,2022-06-18,Compromised Employee,Retail Banking,IT/Admin,On-site,221484,2,Audit/review,2,0,Sensitive personal information,Customer
+INC-0460,2021-03-22,Compromised Employee,Retail Banking,Operations,On-site,22750,23,External tip/extortion demand,2,1,Sensitive personal information,Customer
+INC-0461,2024-05-24,Compromised Employee,Retail Banking,Customer Support,On-site,7125,0,Monitoring alert,2,0,Sensitive personal information,Response
+INC-0462,2021-08-05,Third-Party,Commercial Banking,Customer Support,On-site,72649,31,External tip/extortion demand,2,0,Business disruption,Customer
+INC-0463,2025-07-02,Employee Device/ID Theft,Retail Banking,IT/Admin,On-site,1561,5,External tip/extortion demand,6,1,Sensitive personal information,Customer
+INC-0464,2024-10-23,Internal Employee,Retail Banking,Branch/Teller,Hybrid,512,14,Monitoring alert,5,2,Sensitive personal information,Response
+INC-0465,2022-06-25,Compromised Employee,Retail Banking,Operations,On-site,35791,5,External tip/extortion demand,2,1,Ransom,Response
+INC-0466,2022-10-09,Compromised Employee,Wealth Management,Operations,On-site,5216,1,Monitoring alert,6,0,Ransom,Customer
+INC-0467,2021-05-26,Compromised Employee,Retail Banking,Branch/Teller,Hybrid,1524,3,Audit/review,5,1,Terrorism,Customer
+INC-0468,2025-03-29,Employee Device/ID Theft,Wealth Management,IT/Admin,Remote,2539,0,Monitoring alert,9,0,Business disruption,Response
+INC-0469,2022-07-29,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,2540,48,Customer complaint,0,1,Sensitive personal information,Customer
+INC-0470,2024-04-18,Compromised Employee,Retail Banking,IT/Admin,Hybrid,1119,2,External tip/extortion demand,1,1,Ransom,Regulatory
+INC-0471,2024-07-04,Internal Employee,Capital Markets,Operations,On-site,1466,16,Monitoring alert,24,2,Sensitive personal information,Customer
+INC-0472,2025-01-09,Internal Employee,Retail Banking,Operations,On-site,944,11,Customer complaint,2,1,Grudge,Customer
+INC-0473,2021-01-05,Third-Party,Wealth Management,IT/Admin,Hybrid,11142,92,Monitoring alert,1,0,Sensitive personal information,Response
+INC-0474,2025-12-11,Third-Party,Wealth Management,Customer Support,On-site,7638,26,Audit/review,11,1,Business disruption,Customer
+INC-0475,2025-01-20,Internal Employee,Wealth Management,Customer Support,On-site,3098,5,Audit/review,0,0,Grudge,Customer
+INC-0476,2022-04-23,Internal Employee,Payments,IT/Admin,Hybrid,2727,4,Customer complaint,5,0,Terrorism,Regulatory
+INC-0477,2024-08-14,Internal Employee,Wealth Management,Operations,On-site,5097,10,External tip/extortion demand,4,2,Ransom,Media
+INC-0478,2025-10-22,Compromised Employee,Capital Markets,Operations,On-site,15695,24,Customer complaint,6,1,Ransom,Media
+INC-0479,2022-05-02,Compromised Employee,Commercial Banking,Operations,Hybrid,5859,34,Audit/review,1,0,Sensitive personal information,Customer
+INC-0480,2025-09-02,Internal Employee,Commercial Banking,Operations,On-site,5738,15,Monitoring alert,5,2,Grudge,Customer
+INC-0481,2021-12-04,Internal Employee,Retail Banking,Customer Support,Hybrid,380,11,Audit/review,1,1,Sensitive personal information,Forensic
+INC-0482,2025-05-25,Third-Party,Wealth Management,Vendor/Contractor Staff,Remote,9614,388,Whistleblower report,4,0,Sensitive personal information,Response
+INC-0483,2024-01-18,Compromised Employee,Retail Banking,Operations,Hybrid,15590,4,Audit/review,4,1,Business disruption,Customer
+INC-0484,2022-09-05,Internal Employee,Commercial Banking,Branch/Teller,On-site,415,3,Monitoring alert,2,1,Grudge,Regulatory
+INC-0485,2022-12-25,Third-Party,Payments,Vendor/Contractor Staff,Remote,8938,14,External tip/extortion demand,1,0,Sensitive personal information,Regulatory
+INC-0486,2025-05-22,Internal Employee,Commercial Banking,IT/Admin,On-site,9102,26,External tip/extortion demand,6,1,Grudge,Customer
+INC-0487,2024-04-28,Internal Employee,Capital Markets,Operations,Hybrid,22022,11,Audit/review,6,0,Grudge,Media
+INC-0488,2022-11-22,Third-Party,Retail Banking,Vendor/Contractor Staff,Remote,16243,357,Customer complaint,0,0,Business disruption,Response
+INC-0489,2025-03-31,Compromised Employee,Wealth Management,IT/Admin,On-site,11439,2,Audit/review,6,0,Business disruption,Customer
+INC-0490,2023-04-29,Compromised Employee,Retail Banking,Operations,On-site,2748,8,Monitoring alert,2,0,Terrorism,Customer
+INC-0491,2025-12-07,Compromised Employee,Retail Banking,IT/Admin,On-site,20646,6,External tip/extortion demand,1,0,Ransom,Regulatory
+INC-0492,2021-07-10,Compromised Employee,Wealth Management,IT/Admin,On-site,4633,40,Audit/review,4,1,Sensitive personal information,Customer
+INC-0493,2023-05-02,Compromised Employee,Retail Banking,Operations,On-site,3083,13,Customer complaint,2,0,Business disruption,Regulatory
+INC-0494,2024-10-23,Internal Employee,Payments,Branch/Teller,Hybrid,6776,5,Customer complaint,1,2,Grudge,Response
+INC-0495,2024-06-07,Compromised Employee,Commercial Banking,Operations,On-site,8159,4,Monitoring alert,1,0,Sensitive personal information,Customer
+INC-0496,2023-01-06,Compromised Employee,Retail Banking,Branch/Teller,On-site,21684,46,External tip/extortion demand,4,0,Sensitive personal information,Forensic
+INC-0497,2022-06-08,Internal Employee,Capital Markets,Operations,Remote,2223,2,Audit/review,3,1,Hacktivism,Customer
+INC-0498,2025-10-18,Compromised Employee,Commercial Banking,Operations,Remote,15130,11,Whistleblower report,5,0,Grudge,Customer
+INC-0499,2025-06-23,Internal Employee,Retail Banking,IT/Admin,Remote,3630,35,External tip/extortion demand,4,2,Grudge,Customer
+INC-0500,2022-02-09,Compromised Employee,Retail Banking,IT/Admin,Remote,9576,1,Monitoring alert,1,0,Sensitive personal information,Customer
